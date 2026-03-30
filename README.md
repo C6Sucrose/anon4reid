@@ -18,9 +18,25 @@ Benchmark the privacy–utility trade-off on the **Market-1501 dataset**: apply 
 
 ---
 
+
 ### Project Details
 
 *   **Skills:** Programming (Python), Computer Vision, Deep Learning (PyTorch), Image Processing
 *   **Contact:** robert.aufschlaeger@th-deg.de
 
 ---
+
+### Scope
+
+* **Dataset**: Market-1501.
+
+Baseline Model: Implementing/fine-tuning an existing, well-documented architecture (ResNet-50 with triplet loss or OSNet).
+
+* **Anonymization**: Implementing three distinct techniques of increasing strength (for instance Gaussian Blur, Facial/Body Pixelation, Silhouette Masking/Edge Detection).
+
+* **Metrics**: mAP/CMC (Rank-1) for utility, and Accuracy of a secondary identity classifier for privacy.
+
+* **Reporting**: Compiled Latex report documenting the methodology and the privacy-utility trade-off curve.
+
+---
+
