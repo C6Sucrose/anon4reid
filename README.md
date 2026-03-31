@@ -30,7 +30,7 @@ Benchmark the privacy–utility trade-off on the **Market-1501 dataset**: apply 
 
 * **Dataset**: Market-1501.
 
-Baseline Model: Implementing/fine-tuning an existing, well-documented architecture (ResNet-50 with triplet loss or OSNet).
+* **Baseline Model**: Implementing/fine-tuning an existing, well-documented architecture (ResNet-50 with triplet loss or OSNet).
 
 * **Anonymization**: Implementing three distinct techniques of increasing strength (for instance Gaussian Blur, Facial/Body Pixelation, Silhouette Masking/Edge Detection).
 
