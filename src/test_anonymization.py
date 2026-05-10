@@ -16,8 +16,8 @@ import torch
 from PIL import Image
 
 
-QUERY_DIR     = "../data/raw/Market-1501/query"
-OUTPUT_DIR    = "../outputs/results/dry_run"
+QUERY_DIR     = "../anon4reid/data/raw/Market-1501/query"
+OUTPUT_DIR    = "../anon4reid/outputs/results/dry_run"
 NUM_IMAGES    = 10
 DEVICE        = "cuda" if torch.cuda.is_available() else "cpu"
 

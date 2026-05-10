@@ -78,7 +78,7 @@ def anonymize_lama(
 
 
 if __name__ == "__main__":
-    test_image_path = "../data/raw/Market-1501/query/0001_c1s1_001051_00.jpg"
+    test_image_path = "../anon4reid/data/raw/Market-1501/query/0001_c1s1_001051_00.jpg"
 
     if not os.path.exists(test_image_path):
         print("Image not found, adjust path")
@@ -92,6 +92,6 @@ if __name__ == "__main__":
 
     result = anonymize_lama(img, pipe, device=device)
 
-    os.makedirs("../outputs/results", exist_ok=True)
-    result.save("../outputs/results/lama_result.jpg")
+    os.makedirs("../anon4reid/outputs/results", exist_ok=True)
+    result.save("../anon4reid/outputs/results/lama_result.jpg")
     print("Done! Saved to outputs/results/lama_result.jpg")

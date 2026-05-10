@@ -50,7 +50,7 @@ if __name__ == "__main__":
     import os
 
     # Grab a real image from your dataset
-    test_image_path = "../data/raw/Market-1501/query/0001_c1s1_001051_00.jpg"
+    test_image_path = "../anon4reid/data/raw/Market-1501/query/0001_c1s1_001051_00.jpg"
 
     if os.path.exists(test_image_path):
         img = load_image(test_image_path)
@@ -62,7 +62,7 @@ if __name__ == "__main__":
         downscaled = postprocess(upscaled)
         print(f"Downscaled size: {downscaled.size}")  # (64, 128)
 
-        save_image(upscaled,   "../outputs/results/test_upscaled.jpg")
-        save_image(downscaled, "../outputs/results/test_downscaled.jpg")
+        save_image(upscaled,   "../anon4reid/outputs/results/test_upscaled.jpg")
+        save_image(downscaled, "../anon4reid/outputs/results/test_downscaled.jpg")
     else:
         print(f"Image not found at {test_image_path}, adjust path")
