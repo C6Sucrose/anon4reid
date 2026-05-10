@@ -1,0 +1,8 @@
+opencv-python
+numpy
+Pillow
+torch
+tqdm
+diffusers
+controlnet-aux
+transformers
