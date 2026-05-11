@@ -12,6 +12,7 @@ dependencies = [
     "gdown>=6.0.0",
     "numpy>=2.4.4",
     "opencv-python>=4.13.0.92",
+    "peft>=0.19.1",
     "pillow>=12.2.0",
     "scipy>=1.17.1",
     "tensorboard>=2.20.0",

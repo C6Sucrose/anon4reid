@@ -93,7 +93,7 @@ def anonymize_rad(
 
 
 if __name__ == "__main__":
-    test_image_path = "../data/raw/Market-1501/query/0001_c1s1_001051_00.jpg"
+    test_image_path = "data/raw/Market-1501/query/0001_c1s1_001051_00.jpg"
 
     if not os.path.exists(test_image_path):
         print("Image not found, adjust path")
@@ -107,6 +107,6 @@ if __name__ == "__main__":
 
     result = anonymize_rad(img, pipe, device=device)
 
-    os.makedirs("../outputs/results", exist_ok=True)
-    result.save("../outputs/results/rad_result.jpg")
+    os.makedirs("outputs/results", exist_ok=True)
+    result.save("outputs/results/rad_result.jpg")
     print("Done! Saved to outputs/results/rad_result.jpg")
