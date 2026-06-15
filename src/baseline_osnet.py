@@ -1,8 +1,11 @@
 import os
 import json
 import torch
+import numpy as np
+import torch.nn.functional as F
 import torchreid
 
+from tqdm import tqdm
 from torchreid.reid.data.datasets.image.market1501 import Market1501
 
 class CustomMarket1501(Market1501):
@@ -69,9 +72,9 @@ def main():
     
     model = model.to(device)
 
-    # ─── 4. Evaluation Engine (with TQDM Progress Bar) ─────────────────────
+    # ─── 4. Evaluation with Full CMC Extraction ────────────────────────────
     optimizer = torchreid.reid.optim.build_optimizer(model, optim='adam', lr=0.0003)
-    
+
     engine = torchreid.reid.engine.ImageSoftmaxEngine(
         datamanager,
         model,
@@ -79,40 +82,109 @@ def main():
         label_smooth=True
     )
 
-    # Run testing
-    from tqdm import tqdm
-    
     print("\nRunning baseline evaluation on original Market-1501...")
-    
-    # We call engine._evaluate directly to retrieve BOTH rank1 and mAP
-    # We wrap the data loaders in tqdm to provide an estimated completion time bar
+
     query_loader = datamanager.test_loader['custom_market1501']['query']
     gallery_loader = datamanager.test_loader['custom_market1501']['gallery']
-    
-    rank1, mAP = engine._evaluate(
-        dataset_name='custom_market1501',
-        query_loader=tqdm(query_loader, desc="Extracting Query", leave=True),
-        gallery_loader=tqdm(gallery_loader, desc="Extracting Gallery", leave=True),
+
+    cmc, mAP = _evaluate_full_cmc(
+        engine,
+        tqdm(query_loader, desc="Extracting Query", leave=True),
+        tqdm(gallery_loader, desc="Extracting Gallery", leave=True),
         dist_metric='euclidean',
         normalize_feature=False,
-        visrank=False
     )
-    
+
     # ─── 5. Results Serialization ──────────────────────────────────────────
-    # Save the output metrics specifically
+    rank1  = float(cmc[0])   # cmc[0] = Rank-1
+    rank5  = float(cmc[4])   # cmc[4] = Rank-5
+    rank10 = float(cmc[9])   # cmc[9] = Rank-10
+    rank20 = float(cmc[19])  # cmc[19] = Rank-20
+
     results = {
         "Baseline": {
             "mAP": float(mAP),
-            "Rank-1": float(rank1)
+            "Rank-1": rank1,
+            "Rank-5": rank5,
+            "Rank-10": rank10,
+            "Rank-20": rank20,
+            "CMC_curve": [float(cmc[i]) for i in range(min(20, len(cmc)))]
         }
     }
-    
+
     with open(results_file, 'w') as f:
         json.dump(results, f, indent=4)
-        
+
     print(f"\nBaseline evaluation complete.")
     print(f"Results saved to: {results_file}")
-    print(f"mAP: {mAP:.4f} | Rank-1: {rank1:.4f}")
+    print(f"mAP: {mAP:.4f} | Rank-1: {rank1:.4f} | Rank-5: {rank5:.4f} | Rank-10: {rank10:.4f} | Rank-20: {rank20:.4f}")
+
+
+@torch.no_grad()
+def _evaluate_full_cmc(
+    engine,
+    query_loader,
+    gallery_loader,
+    dist_metric='euclidean',
+    normalize_feature=False,
+):
+    """
+    Evaluates the model and returns the full CMC array + mAP,
+    instead of just Rank-1 + mAP as engine._evaluate() does.
+    Replicates the engine's internal pipeline but captures cmc[k] for all k.
+    """
+    def _extract(loader):
+        f_, pids_, camids_ = [], [], []
+        for data in loader:
+            imgs, pids, camids = engine.parse_data_for_eval(data)
+            if engine.use_gpu:
+                imgs = imgs.cuda()
+            features = engine.extract_features(imgs)
+            features = features.cpu()
+            f_.append(features)
+            pids_.extend(pids.tolist())
+            camids_.extend(camids.tolist())
+        f_ = torch.cat(f_, 0)
+        pids_ = np.asarray(pids_)
+        camids_ = np.asarray(camids_)
+        return f_, pids_, camids_
+
+    print('Extracting features from query set ...')
+    qf, q_pids, q_camids = _extract(query_loader)
+    print(f'Done, obtained {qf.size(0)}-by-{qf.size(1)} matrix')
+
+    print('Extracting features from gallery set ...')
+    gf, g_pids, g_camids = _extract(gallery_loader)
+    print(f'Done, obtained {gf.size(0)}-by-{gf.size(1)} matrix')
+
+    if normalize_feature:
+        print('Normalizing features with L2 norm ...')
+        qf = F.normalize(qf, p=2, dim=1)
+        gf = F.normalize(gf, p=2, dim=1)
+
+    print(f'Computing distance matrix with metric={dist_metric} ...')
+    distmat = torchreid.reid.metrics.compute_distance_matrix(
+        qf, gf, dist_metric
+    )
+    distmat = distmat.numpy()
+
+    print('Computing CMC and mAP ...')
+    cmc, mAP = torchreid.reid.metrics.evaluate_rank(
+        distmat,
+        q_pids,
+        g_pids,
+        q_camids,
+        g_camids,
+        max_rank=50,
+        use_metric_cuhk03=False
+    )
+
+    print('** Results **')
+    print('mAP: {:.1%}'.format(mAP))
+    for r in [1, 5, 10, 20]:
+        print('Rank-{:<3}: {:.1%}'.format(r, cmc[r - 1]))
+
+    return cmc, mAP
 
 
 if __name__ == '__main__':
