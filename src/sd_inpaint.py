@@ -1,12 +1,14 @@
 """
-This module implements the GAN-based anonymization method using LaMa (Large Mask inpainting),
-a state-of-the-art inpainting model that uses Fourier convolutions to fill masked regions
-with realistic background content. In the context of ANON4REID, LaMa is used to remove
-the person from the image entirely and replace them with a plausible background, effectively
-anonymizing their identity while preserving the scene context. The pipeline follows three
-steps: upscale the input image to 512x256 so the model has enough resolution to work with,
-run the inpainting model on the masked person region, then downscale the result back to
-the original 128x64 Market-1501 size.
+This module implements Level 2 anonymization using Stable Diffusion Inpainting
+(sd-legacy/stable-diffusion-inpainting), a diffusion-based inpainting model that
+generates new content in masked regions conditioned on a text prompt and surrounding
+context. In the context of ANON4REID, SD Inpainting is used with a geometric mask
+covering the central torso region to remove identifying features from the person image.
+The model may hallucinate plausible background or clothing details in the masked area,
+which differs from deterministic inpainting methods that fill with observed context.
+The pipeline follows three steps: upscale the input image to 512x256 so the model has
+enough resolution to work with, run the diffusion inpainting model on the masked person
+region, then downscale the result back to the original 128x64 Market-1501 size.
 """
 
 import os
@@ -18,14 +20,14 @@ from diffusers import StableDiffusionInpaintPipeline
 from anonymizer import preprocess, postprocess
 
 
-def load_lama_pipeline(device: str = "cuda"):
+def load_sd_inpaint_pipeline(device: str = "cuda"):
     pipe = StableDiffusionInpaintPipeline.from_pretrained(
         "sd-legacy/stable-diffusion-inpainting",
         torch_dtype=torch.float16 if device == "cuda" else torch.float32,
         safety_checker=None,
     ).to(device)
     pipe.enable_attention_slicing()
-    print(f"LaMa pipeline loaded on {device}.")
+    print(f"SD Inpaint pipeline loaded on {device}.")
     return pipe
 
 
@@ -46,7 +48,7 @@ def generate_person_mask(image: Image.Image) -> Image.Image:
     return Image.fromarray(mask).convert("RGB")
 
 
-def anonymize_lama(
+def anonymize_sd_inpaint(
     image: Image.Image,
     pipe,
     prompt: str = "empty background, no person, floor, wall",
@@ -54,11 +56,11 @@ def anonymize_lama(
     device: str = "cuda"
 ) -> Image.Image:
     """
-    Takes a single PIL Image, runs the full LaMa inpainting anonymization pipeline,
-    and returns the anonymized image at the original 128x64 resolution. The function
-    handles the upscaling, mask generation, inpainting, and downscaling internally
-    so that callers only need to pass in a raw Market-1501 image and get back a
-    transformed one of the same size.
+    Takes a single PIL Image, runs the full Stable Diffusion Inpainting
+    anonymization pipeline, and returns the anonymized image at the original
+    128x64 resolution. The function handles the upscaling, mask generation,
+    inpainting, and downscaling internally so that callers only need to pass
+    in a raw Market-1501 image and get back a transformed one of the same size.
     """
     image_up = preprocess(image)
     mask = generate_person_mask(image_up)
@@ -88,10 +90,10 @@ if __name__ == "__main__":
     print(f"Using device: {device}")
 
     img  = Image.open(test_image_path).convert("RGB")
-    pipe = load_lama_pipeline(device)
+    pipe = load_sd_inpaint_pipeline(device)
 
-    result = anonymize_lama(img, pipe, device=device)
+    result = anonymize_sd_inpaint(img, pipe, device=device)
 
     os.makedirs("outputs/results", exist_ok=True)
-    result.save("outputs/results/lama_result.jpg")
-    print("Done! Saved to outputs/results/lama_result.jpg")
+    result.save("outputs/results/sd_inpaint_result.jpg")
+    print("Done! Saved to outputs/results/sd_inpaint_result.jpg")

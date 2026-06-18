@@ -1,15 +1,15 @@
 """
 This module implements the RAD (Realistic Anonymization with Diffusion) method using
 Stable Diffusion v1.5 conditioned on ControlNet OpenPose and accelerated with LCM-LoRA.
-Unlike the LaMa inpainting approach which removes the person entirely, RAD replaces the
-person with a synthetically generated individual of different appearance while preserving
-the original pose. This is achieved by first extracting the skeleton keypoints from the
-input image using OpenPose, then using those keypoints as a conditioning signal for
-Stable Diffusion to generate a new person in the same pose but with a completely different
-identity. LCM-LoRA is applied to drastically reduce the number of inference steps needed
-from 50 down to 4-8, making the pipeline practical for large scale anonymization of the
-Market-1501 dataset. The image is upscaled to 512x256 before processing and downscaled
-back to 128x64 after, following the same scaling logic as the LaMa pipeline.
+Unlike the SD Inpainting approach which removes the person entirely via inpainting,
+RAD replaces the person with a synthetically generated individual of different appearance
+while preserving the original pose. This is achieved by first extracting the skeleton
+keypoints from the input image using OpenPose, then using those keypoints as a conditioning
+signal for Stable Diffusion to generate a new person in the same pose but with a completely
+different identity. LCM-LoRA is applied to drastically reduce the number of inference steps
+needed from 50 down to 4-8, making the pipeline practical for large scale anonymization of
+the Market-1501 dataset. The image is upscaled to 512x256 before processing and downscaled
+back to 128x64 after, following the same scaling logic as the SD Inpainting pipeline.
 """
 
 import os

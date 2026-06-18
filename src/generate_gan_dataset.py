@@ -1,13 +1,14 @@
 """
-This script runs the LaMa GAN inpainting pipeline on the Market-1501 dataset
-to generate a fully anonymized version called Market-1501-GAN. It processes all
+This script runs the Stable Diffusion Inpainting pipeline on the Market-1501 dataset
+to generate a fully anonymized version called Market-1501-SDInpaint. It processes all
 three splits of the dataset: query, bounding_box_test, and bounding_box_train.
-Each image is passed through the LaMa inpainting pipeline which removes the person
-and replaces them with generated background content. The output directory structure
-mirrors the original Market-1501 structure so it can be used as a drop-in replacement
-for evaluation. Progress is tracked using tqdm and results are saved iteratively after
-each image so that if the script is interrupted or disconnected it can resume from
-where it left off without reprocessing already completed images.
+Each image is passed through the SD Inpainting pipeline which uses a geometric mask
+covering the central torso region to remove identifying features and replaces them
+with diffusion-generated content conditioned on a text prompt. The output directory
+structure mirrors the original Market-1501 structure so it can be used as a drop-in
+replacement for evaluation. Progress is tracked using tqdm and results are saved
+iteratively after each image so that if the script is interrupted or disconnected it
+can resume from where it left off without reprocessing already completed images.
 """
 
 import os
@@ -15,11 +16,11 @@ import torch
 from PIL import Image
 from tqdm import tqdm
 
-from lama_inpaint import load_lama_pipeline, anonymize_lama
+from sd_inpaint import load_sd_inpaint_pipeline, anonymize_sd_inpaint
 
 
 INPUT_DIR  = "../data/raw/Market-1501"
-OUTPUT_DIR = "../data/Market-1501-GAN"
+OUTPUT_DIR = "../data/Market-1501-SDInpaint"
 DEVICE     = "cuda" if torch.cuda.is_available() else "cpu"
 SPLITS     = ["query"]  # Start with query to verify pipeline, add others when ready
 
@@ -61,7 +62,7 @@ def process_split(split: str, pipe):
 
         try:
             img    = Image.open(input_path).convert("RGB")
-            result = anonymize_lama(img, pipe, device=DEVICE)
+            result = anonymize_sd_inpaint(img, pipe, device=DEVICE)
             result.save(output_path)
             processed += 1
         except Exception as e:
@@ -77,8 +78,8 @@ if __name__ == "__main__":
     print(f"Output : {OUTPUT_DIR}")
     print(f"Splits : {SPLITS}")
 
-    print("\nLoading LaMa pipeline...")
-    pipe = load_lama_pipeline(DEVICE)
+    print("\nLoading SD Inpaint pipeline...")
+    pipe = load_sd_inpaint_pipeline(DEVICE)
 
     total_images = sum(
         len(get_images(os.path.join(INPUT_DIR, s)))
@@ -95,6 +96,6 @@ if __name__ == "__main__":
         process_split(split, pipe)
 
     print(f"\n{'='*50}")
-    print(f"GAN dataset generation complete!")
+    print(f"SD Inpaint dataset generation complete!")
     print(f"Output saved to: {OUTPUT_DIR}")
     print(f"{'='*50}")

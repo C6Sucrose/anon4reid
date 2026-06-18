@@ -82,10 +82,10 @@ if __name__ == "__main__":
     # Define all 4 pipelines — script will skip any that don't exist yet
     pipelines = [
         {
-            "name":         "lama",
-            "module":       "lama_inpaint",
-            "load_fn":      "load_lama_pipeline",
-            "anonymize_fn": "anonymize_lama",
+            "name":         "sd_inpaint",
+            "module":       "sd_inpaint",
+            "load_fn":      "load_sd_inpaint_pipeline",
+            "anonymize_fn": "anonymize_sd_inpaint",
         },
         {
             "name":         "rad",

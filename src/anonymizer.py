@@ -1,12 +1,12 @@
 """
 This module handles the image scaling logic required before and after running
 any generative model in the ANON4REID pipeline. Since Market-1501 images are
-natively 128x64 pixels, they are far too small for generative models like LaMa
-or Stable Diffusion to process without producing noise or garbage output. To
-solve this, every image is upscaled to 512x256 before being passed to a model,
-and then downscaled back to 128x64 after the model outputs its result. This
-module provides the core load, upscale, downscale, and save functions that are
-shared across all anonymization methods in this project.
+natively 128x64 pixels, they are far too small for generative models like
+Stable Diffusion Inpainting or Stable Diffusion RAD to process without producing
+noise or garbage output. To solve this, every image is upscaled to 512x256 before
+being passed to a model, and then downscaled back to 128x64 after the model outputs
+its result. This module provides the core load, upscale, downscale, and save
+functions that are shared across all anonymization methods in this project.
 """
 
 import cv2
