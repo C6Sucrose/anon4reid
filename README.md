@@ -15,12 +15,12 @@ Benchmark the privacy–utility trade-off on the **Market-1501 dataset** by appl
 * **Baseline Establishment:** We utilize **OSNet (Omni-Scale Network)** as our primary ReID architecture. It is purpose-built for ReID, capturing both local and global features efficiently. We establish "Ground Truth" performance using pre-trained weights on the original Market-1501 dataset.
 * **The Anonymization Pipeline:** We implement four levels of increasing privacy protection:
 1. **Level 1 (Gaussian Blur):** Gaussian blur applied to the upper portion of the bounding box (top 28%), approximating head/face obfuscation for tightly cropped pedestrian images.
-2. **Level 2 (AI-Powered Inpainting):** Using the **LaMa GAN** to semantically remove identifying features.
+2. **Level 2 (AI-Powered Inpainting):** Using **Stable Diffusion Inpainting** with a geometric mask covering the central torso region to remove identifying features.
 3. **Level 3 (RAD - Realistic Anonymization by Diffusion):** Using **Stable Diffusion v1.5 + ControlNet (OpenPose)** accelerated with **LCM-LoRA** (8-step inference, trading quality for speed) to generate synthetic identities while preserving the original body pose and bounding box geometry.
 4. **Level 4 (Edge Detection):** Applying **Canny Edge Detection** to strip all color and texture, representing the theoretical ceiling of privacy.
 
 
-* **Resolution Handling:** To accommodate generative models (GAN/RAD) on the small **64×128** (width×height) Market-1501 images, we implement an upscale-process-downscale pipeline (from 64×128 to 256×512 back to 64×128) to ensure high-quality synthetic generation without losing data compatibility.
+* **Resolution Handling:** To accommodate generative models (SD Inpainting/RAD) on the small **64×128** (width×height) Market-1501 images, we implement an upscale-process-downscale pipeline (from 64×128 to 256×512 back to 64×128) to ensure high-quality synthetic generation without losing data compatibility.
 * **Privacy Attack Simulation:** We train a secondary **Identity Classifier** (MobileNetV2) on original data to act as an "attacker", measuring how effectively each anonymization level thwarts identity recognition.
 
 ---
@@ -29,7 +29,7 @@ Benchmark the privacy–utility trade-off on the **Market-1501 dataset** by appl
 
 * **Dataset:** Market-1501 (36,036 images across 12,936 train + 19,732 test + 3,368 query splits, 1,501 identities).
 * **Core Model:** **OSNet** (via `torchreid`) for utility measurement.
-* **Generative Models:** LaMa GAN, Stable Diffusion v1.5 with LCM-LoRA and ControlNet.
+* **Generative Models:** Stable Diffusion Inpainting (sd-legacy/stable-diffusion-inpainting), Stable Diffusion v1.5 with LCM-LoRA and ControlNet.
 * **Metrics:**
 * **Utility:** mAP and CMC curves (Rank-1, 5, 10, 20).
 * **Privacy:** Top-1 Accuracy of the Identity Classifier.
