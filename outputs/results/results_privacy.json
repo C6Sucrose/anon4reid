@@ -1,0 +1,22 @@
+{
+    "Blur": {
+        "Top-1_Accuracy": 88.658,
+        "Correct": 2986,
+        "Total": 3368
+    },
+    "Edge": {
+        "Top-1_Accuracy": 0.1485,
+        "Correct": 5,
+        "Total": 3368
+    },
+    "RAD": {
+        "Top-1_Accuracy": 0.1485,
+        "Correct": 5,
+        "Total": 3368
+    },
+    "SDInpaint": {
+        "Top-1_Accuracy": 11.7577,
+        "Correct": 396,
+        "Total": 3368
+    }
+}

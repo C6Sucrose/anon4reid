@@ -20,4 +20,8 @@ dependencies = [
     "tqdm>=4.67.3",
     "transformers>=5.8.0",
     "yacs>=0.1.8",
+    "mediapipe>=0.10.21",
+    "matplotlib>=3.10.0",
+    "streamlit>=1.45.0",
+    "plotly>=6.1.0",
 ]
