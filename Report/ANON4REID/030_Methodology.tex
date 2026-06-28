@@ -83,6 +83,43 @@ Because Market-1501 images are only 64$\times$128 pixels, face detection frequen
     \label{eq:blur_fallback}
 \end{equation}
 
+Listing~\ref{lst:blur} shows the core anonymization function. When MediaPipe detects a face, the bounding box is extracted and blurred in place; otherwise the spatial fallback region is used.
+
+\begin{lstlisting}[language=Python, caption={Level~1 blur anonymization (\texttt{blur\_anonymizer.py}).}, label=lst:blur]
+def anonymize_blur(image, pipe=None, device="cpu"):
+    if _detector is None:
+        load_blur_pipeline(device)
+
+    cv_img = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    h, w = cv_img.shape[:2]
+
+    rgb_array = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+    mp_image = mp.Image(image_format=mp.ImageFormat.SRGB,
+                        data=rgb_array)
+    results = _detector.detect(mp_image)
+
+    if results.detections:
+        for detection in results.detections:
+            bbox = detection.bounding_box
+            x1 = max(0, bbox.origin_x)
+            y1 = max(0, bbox.origin_y)
+            x2 = min(w, bbox.origin_x + bbox.width)
+            y2 = min(h, bbox.origin_y + bbox.height)
+            if x2 > x1 and y2 > y1:
+                roi = cv_img[y1:y2, x1:x2]
+                cv_img[y1:y2, x1:x2] = cv2.GaussianBlur(
+                    roi, (15, 15), 30)
+    else:
+        x1, x2 = int(w * 0.15), int(w * 0.85)
+        y1, y2 = 0, int(h * 0.28)
+        roi = cv_img[y1:y2, x1:x2]
+        cv_img[y1:y2, x1:x2] = cv2.GaussianBlur(
+            roi, (15, 15), 30)
+
+    return Image.fromarray(
+        cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB))
+\end{lstlisting}
+
 An alternative design would apply the upscale--process--downscale pipeline (Section~\ref{sec:resolution}) to Level~1, giving MediaPipe higher-resolution input for face detection. This approach was considered and rejected for several reasons:
 
 \begin{enumerate}[noitemsep]
@@ -97,7 +134,19 @@ An alternative design would apply the upscale--process--downscale pipeline (Sect
 \subsection{Resolution Handling}
 \label{sec:resolution}
 
-Market-1501 images are natively 64$\times$128 pixels, far below the minimum resolution required by generative models. To address this, Levels~2 and~3 apply an upscale--process--downscale pipeline: each image is resized from 64$\times$128 to 256$\times$512 using Lanczos interpolation, the generative model operates on the upscaled image, and the output is resized back to 64$\times$128. This ensures coherent generative output while maintaining data compatibility with the original dataset structure.
+Market-1501 images are natively 64$\times$128 pixels, far below the minimum resolution required by generative models. To address this, Levels~2 and~3 apply an upscale--process--downscale pipeline: each image is resized from 64$\times$128 to 256$\times$512 using Lanczos interpolation, the generative model operates on the upscaled image, and the output is resized back to 64$\times$128. This ensures coherent generative output while maintaining data compatibility with the original dataset structure. Listing~\ref{lst:resolution} shows the shared scaling functions.
+
+\begin{lstlisting}[language=Python, caption={Resolution handling (\texttt{anonymizer.py}).}, label=lst:resolution]
+ORIGINAL_SIZE = (64, 128)   # width x height
+MODEL_SIZE    = (256, 512)
+
+def preprocess(image):
+    image = image.convert("RGB")
+    return image.resize(MODEL_SIZE, Image.LANCZOS)
+
+def postprocess(image):
+    return image.resize(ORIGINAL_SIZE, Image.LANCZOS)
+\end{lstlisting}
 
 
 \subsection{Level 2: Stable Diffusion Inpainting}
@@ -110,7 +159,34 @@ The inpainting model is conditioned on two text prompts:
     \item \textbf{Negative prompt:} \texttt{"person, human, body, blurry, distorted"}
 \end{itemize}
 
-Inference uses 20 denoising steps with a guidance scale of 7.5. Each image is upscaled before processing and downscaled back afterward (Section~\ref{sec:resolution}).
+Inference uses 20 denoising steps with a guidance scale of 7.5. Each image is upscaled before processing and downscaled back afterward (Section~\ref{sec:resolution}). Listing~\ref{lst:sdinpaint} shows the mask generation and inpainting call.
+
+\begin{lstlisting}[language=Python, caption={Level~2 SD Inpaint mask and anonymization (\texttt{sd\_inpaint.py}).}, label=lst:sdinpaint]
+def generate_person_mask(image):
+    w, h = image.size
+    mask = np.zeros((h, w), dtype=np.uint8)
+    x1, x2 = int(w * 0.2), int(w * 0.8)
+    y1, y2 = int(h * 0.1), int(h * 0.9)
+    mask[y1:y2, x1:x2] = 255
+    return Image.fromarray(mask).convert("RGB")
+
+def anonymize_sd_inpaint(image, pipe,
+        prompt="empty background, no person, floor, wall",
+        negative_prompt="person, human, body, blurry, distorted",
+        device="cuda"):
+    image_up = preprocess(image)
+    mask = generate_person_mask(image_up)
+    result = pipe(
+        prompt=prompt,
+        negative_prompt=negative_prompt,
+        image=image_up,
+        mask_image=mask,
+        height=512, width=256,
+        num_inference_steps=20,
+        guidance_scale=7.5,
+    ).images[0]
+    return postprocess(result)
+\end{lstlisting}
 
 \subsection{Level 3: Realistic Anonymization by Diffusion (RAD)}
 
@@ -122,16 +198,86 @@ Level~3 replaces the original person entirely with a synthetically generated ind
     \item \textbf{Inference Acceleration:} LCM-LoRA \cite{luo2023lcm} reduces the required denoising steps from 50 to 8, making batch processing of 36,036 images practical.
 \end{enumerate}
 
-The generation uses a guidance scale of 1.5 and a ControlNet conditioning scale of 0.8, with the prompt \texttt{"a person, different appearance, full body, high quality, realistic"}.
+The generation uses a guidance scale of 1.5 and a ControlNet conditioning scale of 0.8, with the prompt \texttt{"a person, different appearance, full body, high quality, realistic"}. Listing~\ref{lst:rad} shows the anonymization function.
+
+\begin{lstlisting}[language=Python, caption={Level~3 RAD anonymization (\texttt{rad\_pipeline.py}).}, label=lst:rad]
+def anonymize_rad(image, pipe,
+        prompt="a person, different appearance, "
+               "full body, high quality, realistic",
+        negative_prompt="blurry, low quality, "
+                        "distorted, noise, same person",
+        device="cuda"):
+    image_up = preprocess(image)
+    pose = extract_pose(image_up)  # OpenPose skeleton
+    result = pipe(
+        prompt=prompt,
+        negative_prompt=negative_prompt,
+        image=pose,
+        height=512, width=256,
+        num_inference_steps=8,
+        guidance_scale=1.5,
+        controlnet_conditioning_scale=0.8,
+    ).images[0]
+    return postprocess(result)
+\end{lstlisting}
 
 \subsection{Level 4: Canny Edge Detection}
 
-Level~4 applies Canny edge detection \cite{canny1986edge} with thresholds $(T_\text{low}, T_\text{high}) = (100, 200)$ to the entire image, converting it to a binary edge map. The single-channel output is replicated to three channels (RGB) for compatibility with downstream models. This technique strips all color, texture, and fine-grained appearance information, retaining only structural contours.
+Level~4 applies Canny edge detection \cite{canny1986edge} with thresholds $(T_\text{low}, T_\text{high}) = (100, 200)$ to the entire image, converting it to a binary edge map. The single-channel output is replicated to three channels (RGB) for compatibility with downstream models. This technique strips all color, texture, and fine-grained appearance information, retaining only structural contours. Listing~\ref{lst:edge} shows the implementation.
+
+\begin{lstlisting}[language=Python, caption={Level~4 edge silhouette (\texttt{silhouette\_anonymizer.py}).}, label=lst:edge]
+def anonymize_silhouette(image, pipe=None, device="cpu"):
+    cv_gray = cv2.cvtColor(np.array(image),
+                           cv2.COLOR_RGB2GRAY)
+    edges = cv2.Canny(cv_gray, 100, 200)
+    edges_rgb = cv2.cvtColor(edges, cv2.COLOR_GRAY2RGB)
+    return Image.fromarray(edges_rgb)
+\end{lstlisting}
 
 
 \section{Evaluation Framework}
 
-\textbf{Utility} is measured by the \acrshort{reid} performance of a pre-trained \acrshort{osnet} (\texttt{osnet\_x1\_0}) model evaluated on each anonymized dataset variant. The evaluation follows the standard closed-set \acrshort{reid} protocol: features are extracted from all query and gallery images as 512-dimensional embeddings, a Euclidean distance matrix is computed between all query--gallery pairs, and k-reciprocal encoding re-ranking \cite{zhong2017reranking} is applied to refine the distance matrix before computing \acrshort{cmc} curves and \acrshort{map} using the \texttt{torchreid} evaluation function with a maximum rank of 50. Each anonymized dataset variant is dynamically registered as a \texttt{torchreid} dataset using Python's \texttt{type()} to create subclasses of \texttt{Market1501} with modified directory paths, ensuring full compatibility with the standard evaluation pipeline without requiring custom dataloaders.
+\textbf{Utility} is measured by the \acrshort{reid} performance of a pre-trained \acrshort{osnet} (\texttt{osnet\_x1\_0}) model evaluated on each anonymized dataset variant. The evaluation follows the standard closed-set \acrshort{reid} protocol: features are extracted from all query and gallery images as 512-dimensional embeddings, a Euclidean distance matrix is computed between all query--gallery pairs, and k-reciprocal encoding re-ranking \cite{zhong2017reranking} is applied to refine the distance matrix before computing \acrshort{cmc} curves and \acrshort{map} using the \texttt{torchreid} evaluation function with a maximum rank of 50. Each anonymized dataset variant is dynamically registered as a \texttt{torchreid} dataset using Python's \texttt{type()} to create subclasses of \texttt{Market1501} with modified directory paths, ensuring full compatibility with the standard evaluation pipeline without requiring custom dataloaders. Listing~\ref{lst:utility_eval} shows the evaluation function.
+
+\begin{lstlisting}[language=Python, caption={Utility evaluation with k-reciprocal re-ranking (\texttt{evaluate\_utility.py}).}, label=lst:utility_eval]
+@torch.no_grad()
+def _evaluate_full_cmc(engine, query_loader,
+                       gallery_loader,
+                       dist_metric='euclidean',
+                       normalize_feature=False):
+    def _extract(loader):
+        f_, pids_, camids_ = [], [], []
+        for data in loader:
+            imgs, pids, camids = \
+                engine.parse_data_for_eval(data)
+            if engine.use_gpu:
+                imgs = imgs.cuda()
+            features = engine.extract_features(imgs)
+            f_.append(features.cpu())
+            pids_.extend(pids.tolist())
+            camids_.extend(camids.tolist())
+        return torch.cat(f_, 0), \
+               np.asarray(pids_), np.asarray(camids_)
+
+    qf, q_pids, q_camids = _extract(query_loader)
+    gf, g_pids, g_camids = _extract(gallery_loader)
+
+    if normalize_feature:
+        qf = F.normalize(qf, p=2, dim=1)
+        gf = F.normalize(gf, p=2, dim=1)
+
+    # Three distance matrices for re-ranking
+    q_g = compute_distance_matrix(qf, gf, dist_metric)
+    q_q = compute_distance_matrix(qf, qf, dist_metric)
+    g_g = compute_distance_matrix(gf, gf, dist_metric)
+    distmat = re_ranking(q_g.numpy(),
+                         q_q.numpy(), g_g.numpy())
+
+    cmc, mAP = evaluate_rank(
+        distmat, q_pids, g_pids,
+        q_camids, g_camids, max_rank=50)
+    return cmc, mAP
+\end{lstlisting}
 
 \textbf{Privacy} is measured by the Top-1 accuracy of an adversarial MobileNetV2 \cite{sandler2018mobilenetv2} classifier on anonymized query images. The attacker is pre-trained on ImageNet \cite{deng2009imagenet} and fine-tuned on original (non-anonymized) Market-1501 images to classify person identity. During inference, each anonymized query image is resized to 256$\times$128 pixels and normalized using the ImageNet channel statistics ($\mu = [0.485, 0.456, 0.406]$, $\sigma = [0.229, 0.224, 0.225]$) before being passed through the classifier. The privacy metric is:
 
@@ -139,6 +285,29 @@ Level~4 applies Canny edge detection \cite{canny1986edge} with thresholds $(T_\t
     \text{Privacy Leakage} = \frac{\text{Correctly classified query images}}{\text{Total query images}} \times 100\%
     \label{eq:privacy_leak}
 \end{equation}
+
+\noindent Listing~\ref{lst:privacy_eval} shows the inference loop used to compute this metric.
+
+\begin{lstlisting}[language=Python, caption={Privacy evaluation inference loop (\texttt{evaluate\_privacy.py}).}, label=lst:privacy_eval]
+model = models.mobilenet_v2()
+model.classifier[1] = nn.Linear(
+    model.classifier[1].in_features, num_classes)
+model.load_state_dict(torch.load(weights_path,
+    map_location=device, weights_only=True))
+model = model.to(device)
+model.eval()
+
+with torch.no_grad():
+    for imgs, labels in loader:
+        imgs = imgs.to(device)
+        labels = labels.to(device)
+        outputs = model(imgs)
+        _, predicted = outputs.max(1)
+        correct += predicted.eq(labels).sum().item()
+        total += labels.size(0)
+
+accuracy = (correct / total) * 100
+\end{lstlisting}
 
 A high leakage value indicates that the anonymization technique fails to protect identity information; a value near 0\% indicates strong privacy protection. For context, random guessing across 750 identity classes would yield approximately $\frac{1}{750} \times 100\% \approx 0.13\%$ accuracy, providing a theoretical floor for the privacy metric.
 

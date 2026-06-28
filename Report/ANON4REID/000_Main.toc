@@ -15,25 +15,25 @@
 \contentsline {section}{\numberline {3.2}Anonymization Pipeline}{7}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Level 1: Gaussian Blur with Face Detection}{7}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Resolution Handling}{8}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Level 2: Stable Diffusion Inpainting}{8}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Level 3: Realistic Anonymization by Diffusion (RAD)}{8}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Level 4: Canny Edge Detection}{8}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}Evaluation Framework}{9}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Implementation}{10}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Project Scope and Evolution}{10}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Development Environment}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Dataset Generation}{12}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Attacker Model Training}{12}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Interactive Dashboard}{13}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Results}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Utility Evaluation}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Privacy Evaluation}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Privacy--Utility Trade-off}{16}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Effect of K-Reciprocal Re-Ranking}{17}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Discussion}{18}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Key Findings}{18}{section.6.1}%
-\contentsline {section}{\numberline {6.2}State-of-the-Art Context}{19}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Limitations and Future Work}{20}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Conclusion}{20}{chapter.7}%
-\contentsline {chapter}{\nonumberline References}{22}{chapter*.19}%
+\contentsline {subsection}{\numberline {3.2.3}Level 2: Stable Diffusion Inpainting}{9}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Level 3: Realistic Anonymization by Diffusion (RAD)}{10}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Level 4: Canny Edge Detection}{10}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Evaluation Framework}{11}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Implementation}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Project Scope and Evolution}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Development Environment}{14}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Dataset Generation}{15}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Attacker Model Training}{16}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Interactive Dashboard}{17}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Results}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Utility Evaluation}{18}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Privacy Evaluation}{19}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Privacy--Utility Trade-off}{20}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Effect of K-Reciprocal Re-Ranking}{22}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Discussion}{22}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Key Findings}{22}{section.6.1}%
+\contentsline {section}{\numberline {6.2}State-of-the-Art Context}{24}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitations and Future Work}{24}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Conclusion}{25}{chapter.7}%
+\contentsline {chapter}{\nonumberline References}{27}{chapter*.19}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

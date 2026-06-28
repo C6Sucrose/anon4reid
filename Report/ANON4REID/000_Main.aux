@@ -1,12 +1,12 @@
 \relax 
 \providecommand{\transparent@use}[1]{}
 \providecommand*\new@tpo@label[2]{}
-\providecommand\hyper@newdestlabel[2]{}
-\providecommand\HyField@AuxAddToFields[1]{}
-\providecommand\HyField@AuxAddToCoFields[2]{}
 \providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
 \@nameuse{bbl@beforestart}
 \abx@aux@refcontext{none/global//global/global/global}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
 \providecommand\BKM@entry[2]{}
 \providecommand\@newglossary[4]{}
 \@newglossary{main}{glg}{gls}{glo}
@@ -140,8 +140,17 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Anonymization Pipeline}{7}{section.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Level 1: Gaussian Blur with Face Detection}{7}{subsection.3.2.1}\protected@file@percent }
 \newlabel{eq:blur_fallback}{{3.1}{7}{Level 1: Gaussian Blur with Face Detection}{equation.3.1}{}}
+\newlabel{lst:blur}{{3.1}{7}{Level~1 blur anonymization (\texttt {blur\_anonymizer.py})}{lstlisting.3.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces Level~1 blur anonymization (\texttt  {blur\_anonymizer.py}).}}{7}{lstlisting.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Resolution Handling}{8}{subsection.3.2.2}\protected@file@percent }
+\newlabel{sec:resolution}{{3.2.2}{8}{Resolution Handling}{subsection.3.2.2}{}}
+\newlabel{lst:resolution}{{3.2}{8}{Resolution handling (\texttt {anonymizer.py})}{lstlisting.3.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.2}{\ignorespaces Resolution handling (\texttt  {anonymizer.py}).}}{8}{lstlisting.3.2}\protected@file@percent }
 \abx@aux@cite{0}{rombach2022ldm}
 \abx@aux@segm{0}{0}{rombach2022ldm}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Level 2: Stable Diffusion Inpainting}{9}{subsection.3.2.3}\protected@file@percent }
+\newlabel{lst:sdinpaint}{{3.3}{9}{Level~2 SD Inpaint mask and anonymization (\texttt {sd\_inpaint.py})}{lstlisting.3.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.3}{\ignorespaces Level~2 SD Inpaint mask and anonymization (\texttt  {sd\_inpaint.py}).}}{9}{lstlisting.3.3}\protected@file@percent }
 \abx@aux@cite{0}{cao2017openpose}
 \abx@aux@segm{0}{0}{cao2017openpose}
 \abx@aux@cite{0}{rombach2022ldm}
@@ -152,145 +161,154 @@
 \abx@aux@segm{0}{0}{luo2023lcm}
 \abx@aux@cite{0}{canny1986edge}
 \abx@aux@segm{0}{0}{canny1986edge}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Resolution Handling}{8}{subsection.3.2.2}\protected@file@percent }
-\newlabel{sec:resolution}{{3.2.2}{8}{Resolution Handling}{subsection.3.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Level 2: Stable Diffusion Inpainting}{8}{subsection.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Level 3: Realistic Anonymization by Diffusion (RAD)}{8}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Level 4: Canny Edge Detection}{8}{subsection.3.2.5}\protected@file@percent }
-\BKM@entry{id=15,dest={73656374696F6E2E332E33},srcline={132}}{5C3337365C3337375C303030455C303030765C303030615C3030306C5C303030755C303030615C303030745C303030695C3030306F5C3030306E5C3030305C3034305C303030465C303030725C303030615C3030306D5C303030655C303030775C3030306F5C303030725C3030306B}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Level 3: Realistic Anonymization by Diffusion (RAD)}{10}{subsection.3.2.4}\protected@file@percent }
+\newlabel{lst:rad}{{3.4}{10}{Level~3 RAD anonymization (\texttt {rad\_pipeline.py})}{lstlisting.3.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.4}{\ignorespaces Level~3 RAD anonymization (\texttt  {rad\_pipeline.py}).}}{10}{lstlisting.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Level 4: Canny Edge Detection}{10}{subsection.3.2.5}\protected@file@percent }
+\BKM@entry{id=15,dest={73656374696F6E2E332E33},srcline={238}}{5C3337365C3337375C303030455C303030765C303030615C3030306C5C303030755C303030615C303030745C303030695C3030306F5C3030306E5C3030305C3034305C303030465C303030725C303030615C3030306D5C303030655C303030775C3030306F5C303030725C3030306B}
 \abx@aux@cite{0}{zhong2017reranking}
 \abx@aux@segm{0}{0}{zhong2017reranking}
+\newlabel{lst:edge}{{3.5}{11}{Level~4 edge silhouette (\texttt {silhouette\_anonymizer.py})}{lstlisting.3.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.5}{\ignorespaces Level~4 edge silhouette (\texttt  {silhouette\_anonymizer.py}).}}{11}{lstlisting.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Evaluation Framework}{11}{section.3.3}\protected@file@percent }
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{11}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{11}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{11}}
+\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{11}}
+\@gls@reference{acronym}{map}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{11}}
+\newlabel{lst:utility_eval}{{3.6}{11}{Utility evaluation with k-reciprocal re-ranking (\texttt {evaluate\_utility.py})}{lstlisting.3.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.6}{\ignorespaces Utility evaluation with k-reciprocal re-ranking (\texttt  {evaluate\_utility.py}).}}{11}{lstlisting.3.6}\protected@file@percent }
 \abx@aux@cite{0}{sandler2018mobilenetv2}
 \abx@aux@segm{0}{0}{sandler2018mobilenetv2}
 \abx@aux@cite{0}{deng2009imagenet}
 \abx@aux@segm{0}{0}{deng2009imagenet}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Evaluation Framework}{9}{section.3.3}\protected@file@percent }
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{9}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{9}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{9}}
-\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{9}}
-\@gls@reference{acronym}{map}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{9}}
-\newlabel{eq:privacy_leak}{{3.2}{9}{Evaluation Framework}{equation.3.2}{}}
-\newlabel{eq:effectiveness}{{3.3}{9}{Evaluation Framework}{equation.3.3}{}}
+\newlabel{eq:privacy_leak}{{3.2}{12}{Evaluation Framework}{equation.3.2}{}}
+\newlabel{lst:privacy_eval}{{3.7}{12}{Privacy evaluation inference loop (\texttt {evaluate\_privacy.py})}{lstlisting.3.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.7}{\ignorespaces Privacy evaluation inference loop (\texttt  {evaluate\_privacy.py}).}}{12}{lstlisting.3.7}\protected@file@percent }
 \BKM@entry{id=16,dest={636861707465722E34},srcline={1}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030615C303030745C303030695C3030306F5C3030306E}
 \BKM@entry{id=17,dest={73656374696F6E2E342E31},srcline={3}}{5C3337365C3337375C303030505C303030725C3030306F5C3030306A5C303030655C303030635C303030745C3030305C3034305C303030535C303030635C3030306F5C303030705C303030655C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030455C303030765C3030306F5C3030306C5C303030755C303030745C303030695C3030306F5C3030306E}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementation}{10}{chapter.4}\protected@file@percent }
+\newlabel{eq:effectiveness}{{3.3}{13}{Evaluation Framework}{equation.3.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementation}{13}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Project Scope and Evolution}{10}{section.4.1}\protected@file@percent }
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{10}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Project Scope and Evolution}{13}{section.4.1}\protected@file@percent }
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{13}}
 \BKM@entry{id=18,dest={73656374696F6E2E342E32},srcline={31}}{5C3337365C3337375C303030445C303030655C303030765C303030655C3030306C5C3030306F5C303030705C3030306D5C303030655C3030306E5C303030745C3030305C3034305C303030455C3030306E5C303030765C303030695C303030725C3030306F5C3030306E5C3030306D5C303030655C3030306E5C30303074}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{14}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Project development phases.}}{14}{table.caption.7}\protected@file@percent }
+\newlabel{tab:timeline}{{4.1}{14}{Project development phases}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Development Environment}{14}{section.4.2}\protected@file@percent }
 \BKM@entry{id=19,dest={73656374696F6E2E342E33},srcline={56}}{5C3337365C3337375C303030445C303030615C303030745C303030615C303030735C303030655C303030745C3030305C3034305C303030475C303030655C3030306E5C303030655C303030725C303030615C303030745C303030695C3030306F5C3030306E}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Project development phases.}}{11}{table.caption.7}\protected@file@percent }
-\newlabel{tab:timeline}{{4.1}{11}{Project development phases}{table.caption.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Development Environment}{11}{section.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Principal software dependencies.}}{11}{table.caption.8}\protected@file@percent }
-\newlabel{tab:dependencies}{{4.2}{11}{Principal software dependencies}{table.caption.8}{}}
-\BKM@entry{id=20,dest={73656374696F6E2E342E34},srcline={65}}{5C3337365C3337375C303030415C303030745C303030745C303030615C303030635C3030306B5C303030655C303030725C3030305C3034305C3030304D5C3030306F5C303030645C303030655C3030306C5C3030305C3034305C303030545C303030725C303030615C303030695C3030306E5C303030695C3030306E5C30303067}
-\BKM@entry{id=21,dest={73656374696F6E2E342E35},srcline={93}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030725C303030615C303030635C303030745C303030695C303030765C303030655C3030305C3034305C303030445C303030615C303030735C303030685C303030625C3030306F5C303030615C303030725C30303064}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Dataset Generation}{12}{section.4.3}\protected@file@percent }
-\@gls@reference{acronym}{gpu}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{12}}
-\@gls@reference{acronym}{gpu}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Attacker Model Training}{12}{section.4.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces MobileNetV2 attacker training configuration.}}{12}{table.caption.9}\protected@file@percent }
-\newlabel{tab:attacker_config}{{4.3}{12}{MobileNetV2 attacker training configuration}{table.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Principal software dependencies.}}{15}{table.caption.8}\protected@file@percent }
+\newlabel{tab:dependencies}{{4.2}{15}{Principal software dependencies}{table.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Dataset Generation}{15}{section.4.3}\protected@file@percent }
+\newlabel{lst:dataset_reg}{{4.1}{15}{Dynamic dataset registration for anonymized variants (\texttt {evaluate\_utility.py})}{lstlisting.4.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}{\ignorespaces Dynamic dataset registration for anonymized variants (\texttt  {evaluate\_utility.py}).}}{15}{lstlisting.4.1}\protected@file@percent }
+\@gls@reference{acronym}{gpu}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{15}}
+\@gls@reference{acronym}{gpu}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{15}}
+\BKM@entry{id=20,dest={73656374696F6E2E342E34},srcline={79}}{5C3337365C3337375C303030415C303030745C303030745C303030615C303030635C3030306B5C303030655C303030725C3030305C3034305C3030304D5C3030306F5C303030645C303030655C3030306C5C3030305C3034305C303030545C303030725C303030615C303030695C3030306E5C303030695C3030306E5C30303067}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Attacker Model Training}{16}{section.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces MobileNetV2 attacker training configuration.}}{16}{table.caption.9}\protected@file@percent }
+\newlabel{tab:attacker_config}{{4.3}{16}{MobileNetV2 attacker training configuration}{table.caption.9}{}}
+\newlabel{lst:attacker_train}{{4.2}{16}{Attacker model training loop (\texttt {train\_attacker.py})}{lstlisting.4.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}{\ignorespaces Attacker model training loop (\texttt  {train\_attacker.py}).}}{16}{lstlisting.4.2}\protected@file@percent }
+\BKM@entry{id=21,dest={73656374696F6E2E342E35},srcline={150}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030725C303030615C303030635C303030745C303030695C303030765C303030655C3030305C3034305C303030445C303030615C303030735C303030685C303030625C3030306F5C303030615C303030725C30303064}
 \BKM@entry{id=22,dest={636861707465722E35},srcline={1}}{5C3337365C3337375C303030525C303030655C303030735C303030755C3030306C5C303030745C30303073}
 \BKM@entry{id=23,dest={73656374696F6E2E352E31},srcline={3}}{5C3337365C3337375C303030555C303030745C303030695C3030306C5C303030695C303030745C303030795C3030305C3034305C303030455C303030765C303030615C3030306C5C303030755C303030615C303030745C303030695C3030306F5C3030306E}
 \abx@aux@cite{0}{zhong2017reranking}
 \abx@aux@segm{0}{0}{zhong2017reranking}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Interactive Dashboard}{13}{section.4.5}\protected@file@percent }
-\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{13}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Results}{13}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Interactive Dashboard}{17}{section.4.5}\protected@file@percent }
+\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{17}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Results}{17}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Utility Evaluation}{13}{section.5.1}\protected@file@percent }
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{13}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Baseline \acrshort {osnet} performance on the original Market-1501 dataset.}}{13}{table.caption.10}\protected@file@percent }
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{13}}
-\newlabel{tab:baseline}{{5.1}{13}{Baseline \acrshort {osnet} performance on the original Market-1501 dataset}{table.caption.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Utility results: \acrshort {osnet} \acrshort {reid} performance across anonymization levels.}}{14}{table.caption.11}\protected@file@percent }
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{14}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{14}}
-\newlabel{tab:utility}{{5.2}{14}{Utility results: \acrshort {osnet} \acrshort {reid} performance across anonymization levels}{table.caption.11}{}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{14}}
-\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Mean Average Precision (mAP) across anonymization levels. Baseline represents the original Market-1501 dataset evaluated with OSNet.}}{14}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:map_comparison}{{5.1}{14}{Mean Average Precision (mAP) across anonymization levels. Baseline represents the original Market-1501 dataset evaluated with OSNet}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Utility Evaluation}{18}{section.5.1}\protected@file@percent }
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Baseline \acrshort {osnet} performance on the original Market-1501 dataset.}}{18}{table.caption.10}\protected@file@percent }
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
+\newlabel{tab:baseline}{{5.1}{18}{Baseline \acrshort {osnet} performance on the original Market-1501 dataset}{table.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Utility results: \acrshort {osnet} \acrshort {reid} performance across anonymization levels.}}{18}{table.caption.11}\protected@file@percent }
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
+\newlabel{tab:utility}{{5.2}{18}{Utility results: \acrshort {osnet} \acrshort {reid} performance across anonymization levels}{table.caption.11}{}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
+\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
 \BKM@entry{id=24,dest={73656374696F6E2E352E32},srcline={120}}{5C3337365C3337375C303030505C303030725C303030695C303030765C303030615C303030635C303030795C3030305C3034305C303030455C303030765C303030615C3030306C5C303030755C303030615C303030745C303030695C3030306F5C3030306E}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \acrlong {cmc} curves for all anonymization levels and the baseline. L1 (Blur) closely tracks the Baseline, while L2--L4 remain near zero across all ranks.}}{15}{figure.caption.13}\protected@file@percent }
-\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{15}}
-\newlabel{fig:cmc_curves}{{5.2}{15}{\acrlong {cmc} curves for all anonymization levels and the baseline. L1 (Blur) closely tracks the Baseline, while L2--L4 remain near zero across all ranks}{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Privacy Evaluation}{15}{section.5.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection.}}{15}{table.caption.14}\protected@file@percent }
-\newlabel{tab:privacy}{{5.3}{15}{Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection}{table.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Mean Average Precision (mAP) across anonymization levels. Baseline represents the original Market-1501 dataset evaluated with OSNet.}}{19}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:map_comparison}{{5.1}{19}{Mean Average Precision (mAP) across anonymization levels. Baseline represents the original Market-1501 dataset evaluated with OSNet}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \acrlong {cmc} curves for all anonymization levels and the baseline. L1 (Blur) closely tracks the Baseline, while L2--L4 remain near zero across all ranks.}}{19}{figure.caption.13}\protected@file@percent }
+\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
+\newlabel{fig:cmc_curves}{{5.2}{19}{\acrlong {cmc} curves for all anonymization levels and the baseline. L1 (Blur) closely tracks the Baseline, while L2--L4 remain near zero across all ranks}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Privacy Evaluation}{19}{section.5.2}\protected@file@percent }
 \BKM@entry{id=25,dest={73656374696F6E2E352E33},srcline={176}}{5C3337365C3337375C303030505C303030725C303030695C303030765C303030615C303030635C303030795C3034305C3032335C303030555C303030745C303030695C3030306C5C303030695C303030745C303030795C3030305C3034305C303030545C303030725C303030615C303030645C303030655C3030302D5C3030306F5C303030665C30303066}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Privacy leakage (MobileNetV2 attacker Top-1 accuracy) across anonymization levels. L3 (RAD) and L4 (Edge) reduce the attacker to near-random performance.}}{16}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:privacy_leakage}{{5.3}{16}{Privacy leakage (MobileNetV2 attacker Top-1 accuracy) across anonymization levels. L3 (RAD) and L4 (Edge) reduce the attacker to near-random performance}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Privacy--Utility Trade-off}{16}{section.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text  {Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained.}}{16}{table.caption.16}\protected@file@percent }
-\newlabel{tab:tradeoff}{{5.4}{16}{Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text {Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained}{table.caption.16}{}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{16}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection.}}{20}{table.caption.14}\protected@file@percent }
+\newlabel{tab:privacy}{{5.3}{20}{Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection}{table.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Privacy leakage (MobileNetV2 attacker Top-1 accuracy) across anonymization levels. L3 (RAD) and L4 (Edge) reduce the attacker to near-random performance.}}{20}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:privacy_leakage}{{5.3}{20}{Privacy leakage (MobileNetV2 attacker Top-1 accuracy) across anonymization levels. L3 (RAD) and L4 (Edge) reduce the attacker to near-random performance}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Privacy--Utility Trade-off}{20}{section.5.3}\protected@file@percent }
 \BKM@entry{id=26,dest={73656374696F6E2E352E34},srcline={235}}{5C3337365C3337375C303030455C303030665C303030665C303030655C303030635C303030745C3030305C3034305C3030306F5C303030665C3030305C3034305C3030304B5C3030302D5C303030525C303030655C303030635C303030695C303030705C303030725C3030306F5C303030635C303030615C3030306C5C3030305C3034305C303030525C303030655C3030302D5C303030525C303030615C3030306E5C3030306B5C303030695C3030306E5C30303067}
 \abx@aux@cite{0}{zhong2017reranking}
 \abx@aux@segm{0}{0}{zhong2017reranking}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Privacy--utility trade-off scatter plot. The ideal zone (high utility, low leakage) in the bottom-right is unoccupied, illustrating the fundamental tension between privacy and \acrshort {reid} utility.}}{17}{figure.caption.17}\protected@file@percent }
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{17}}
-\newlabel{fig:tradeoff_scatter}{{5.4}{17}{Privacy--utility trade-off scatter plot. The ideal zone (high utility, low leakage) in the bottom-right is unoccupied, illustrating the fundamental tension between privacy and \acrshort {reid} utility}{figure.caption.17}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Effect of K-Reciprocal Re-Ranking}{17}{section.5.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding.}}{17}{table.caption.18}\protected@file@percent }
-\newlabel{tab:reranking_comparison}{{5.5}{17}{Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding}{table.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text  {Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained.}}{21}{table.caption.16}\protected@file@percent }
+\newlabel{tab:tradeoff}{{5.4}{21}{Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text {Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained}{table.caption.16}{}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Privacy--utility trade-off scatter plot. The ideal zone (high utility, low leakage) in the bottom-right is unoccupied, illustrating the fundamental tension between privacy and \acrshort {reid} utility.}}{21}{figure.caption.17}\protected@file@percent }
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
+\newlabel{fig:tradeoff_scatter}{{5.4}{21}{Privacy--utility trade-off scatter plot. The ideal zone (high utility, low leakage) in the bottom-right is unoccupied, illustrating the fundamental tension between privacy and \acrshort {reid} utility}{figure.caption.17}{}}
 \BKM@entry{id=27,dest={636861707465722E36},srcline={1}}{5C3337365C3337375C303030445C303030695C303030735C303030635C303030755C303030735C303030735C303030695C3030306F5C3030306E}
 \BKM@entry{id=28,dest={73656374696F6E2E362E31},srcline={3}}{5C3337365C3337375C3030304B5C303030655C303030795C3030305C3034305C303030465C303030695C3030306E5C303030645C303030695C3030306E5C303030675C30303073}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Discussion}{18}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Effect of K-Reciprocal Re-Ranking}{22}{section.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding.}}{22}{table.caption.18}\protected@file@percent }
+\newlabel{tab:reranking_comparison}{{5.5}{22}{Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding}{table.caption.18}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Discussion}{22}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Key Findings}{18}{section.6.1}\protected@file@percent }
-\@gls@reference{acronym}{cnn}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Key Findings}{22}{section.6.1}\protected@file@percent }
+\@gls@reference{acronym}{cnn}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
+\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
 \BKM@entry{id=29,dest={73656374696F6E2E362E32},srcline={24}}{5C3337365C3337375C303030535C303030745C303030615C303030745C303030655C3030302D5C3030306F5C303030665C3030302D5C303030745C303030685C303030655C3030302D5C303030415C303030725C303030745C3030305C3034305C303030435C3030306F5C3030306E5C303030745C303030655C303030785C30303074}
 \abx@aux@cite{0}{zhou2019osnet}
 \abx@aux@segm{0}{0}{zhou2019osnet}
 \abx@aux@cite{0}{zhong2017reranking}
 \abx@aux@segm{0}{0}{zhong2017reranking}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
-\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}State-of-the-Art Context}{19}{section.6.2}\protected@file@percent }
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{19}}
 \BKM@entry{id=30,dest={73656374696F6E2E362E33},srcline={35}}{5C3337365C3337375C3030304C5C303030695C3030306D5C303030695C303030745C303030615C303030745C303030695C3030306F5C3030306E5C303030735C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030465C303030755C303030745C303030755C303030725C303030655C3030305C3034305C303030575C3030306F5C303030725C3030306B}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}State-of-the-Art Context}{24}{section.6.2}\protected@file@percent }
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{24}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{24}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Limitations and Future Work}{24}{section.6.3}\protected@file@percent }
 \BKM@entry{id=31,dest={636861707465722E37},srcline={1}}{5C3337365C3337375C303030435C3030306F5C3030306E5C303030635C3030306C5C303030755C303030735C303030695C3030306F5C3030306E}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Limitations and Future Work}{20}{section.6.3}\protected@file@percent }
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{20}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{20}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{20}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{20}{chapter.7}\protected@file@percent }
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{25}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{25}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{25}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{25}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{21}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{25}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{25}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{26}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{26}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{26}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{26}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{26}}
 \BKM@entry{id=32,dest={636861707465722A2E3139},srcline={231}}{5C3337365C3337375C303030525C303030655C303030665C303030655C303030725C303030655C3030306E5C303030635C303030655C30303073}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline References}{22}{chapter*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline References}{27}{chapter*.19}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
-\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
-\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
-\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{23}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{28}}
+\@gls@reference{acronym}{cmc}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{28}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{28}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{28}}
+\@gls@reference{acronym}{osnet}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{28}}
+\@gls@reference{acronym}{reid}{\glsnoidxdisplayloc{}{page}{glsnumberformat}{28}}
 \abx@aux@read@bbl@mdfivesum{D8057343F971A4CD31B1CBA4060A02B1}
 \abx@aux@defaultrefcontext{0}{gdpr2016}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{zheng2015market1501}{none/global//global/global/global}
@@ -309,7 +327,9 @@
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{21.7079pt}
 \global\@namedef{scr@dte@table@lastmaxnumwidth}{21.7079pt}
 \global\@namedef{scr@dte@figure@lastmaxnumwidth}{21.7079pt}
+\global\@namedef{scr@dte@lstlisting@lastmaxnumwidth}{21.7079pt}
 \@writefile{toc}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
 \@writefile{lof}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
 \@writefile{lot}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
-\gdef \@abspage@last{29}
+\@writefile{lol}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
+\gdef \@abspage@last{34}

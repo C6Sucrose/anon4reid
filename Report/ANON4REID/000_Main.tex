@@ -28,21 +28,6 @@
 \addtokomafont{subsection}{\color{cfDark}}
 \addtokomafont{subsubsection}{\color{cfDark}}
 
-% Dokumentinformationen
-\usepackage[
-	pdftitle={ANON4REID: Privacy-Utility Trade-off Benchmark},
-	pdfsubject={AI Project Report},
-	pdfauthor={Huraira Ali, Jazib Aslam, Kazi Shafwan Ur Rehman, Muhammad Umer Awan},
-	pdfkeywords={Person Re-Identification, Anonymization, Privacy, Deep Learning},
-	pdftex=true,
-	colorlinks=true,
- 	breaklinks=true,
-	citecolor=cfTeal,
-	linkcolor=cfDark,
-	menucolor=cfDark,
-	urlcolor=cfTeal
-]{hyperref}
-
 
 % ============= Packages =============
 \usepackage[utf8]{inputenc}
@@ -72,6 +57,21 @@
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
 \usepackage[most]{tcolorbox}
+
+% Dokumentinformationen (hyperref must be loaded after most other packages)
+\usepackage[
+	pdftitle={ANON4REID: Privacy-Utility Trade-off Benchmark},
+	pdfsubject={AI Project Report},
+	pdfauthor={Huraira Ali, Jazib Aslam, Kazi Shafwan Ur Rehman, Muhammad Umer Awan},
+	pdfkeywords={Person Re-Identification, Anonymization, Privacy, Deep Learning},
+	pdftex=true,
+	colorlinks=true,
+ 	breaklinks=true,
+	citecolor=cfTeal,
+	linkcolor=cfDark,
+	menucolor=cfDark,
+	urlcolor=cfTeal
+]{hyperref}
 
 %Serifenlose Schrift
 \renewcommand{\familydefault}{\sfdefault}
@@ -231,6 +231,7 @@ This report presents ANON4REID, a benchmark for evaluating the privacy-utility t
     \printbibliography[heading=bibintoc,title={References}]
     \listoffigures
     \listoftables
+    \lstlistoflistings
 
 %----------------------------------------------------------------------%
 %      End Document
