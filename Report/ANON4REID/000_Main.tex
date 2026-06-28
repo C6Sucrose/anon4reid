@@ -1,0 +1,240 @@
+%Dokumentklasse
+\documentclass[a4paper,12pt, bibliography=totoc]{scrreprt}
+\usepackage[left= 2.5cm,right = 2cm, bottom = 3 cm, top = 2cm]{geometry}
+
+% ============= Packages =============
+
+% subsubsection wird im Inhaltverzeichnis angezeigt
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{3}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% ============= Cassette Futurism Color Palette =============
+\definecolor{cfAmber}{HTML}{E8A317}
+\definecolor{cfTeal}{HTML}{008B8B}
+\definecolor{cfDark}{HTML}{2C2C34}
+\definecolor{cfCream}{HTML}{FFF5E6}
+\definecolor{cfOrange}{HTML}{D4762C}
+\definecolor{cfGreen}{HTML}{2D6B4E}
+\definecolor{cfRed}{HTML}{C0392B}
+\definecolor{cfLightGray}{HTML}{F2F0EB}
+\definecolor{cfMidGray}{HTML}{8C8C8C}
+
+% ============= Apply Cassette Futurism to Headings =============
+\addtokomafont{chapter}{\color{cfDark}}
+\addtokomafont{section}{\color{cfTeal}}
+\addtokomafont{subsection}{\color{cfDark}}
+\addtokomafont{subsubsection}{\color{cfDark}}
+
+% Dokumentinformationen
+\usepackage[
+	pdftitle={ANON4REID: Privacy-Utility Trade-off Benchmark},
+	pdfsubject={AI Project Report},
+	pdfauthor={Huraira Ali, Jazib Aslam, Kazi Shafwan Ur Rehman, Muhammad Umer Awan},
+	pdfkeywords={Person Re-Identification, Anonymization, Privacy, Deep Learning},
+	pdftex=true,
+	colorlinks=true,
+ 	breaklinks=true,
+	citecolor=cfTeal,
+	linkcolor=cfDark,
+	menucolor=cfDark,
+	urlcolor=cfTeal
+]{hyperref}
+
+
+% ============= Packages =============
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
+\graphicspath{{img/}}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{soul}
+\usepackage{transparent}
+\usepackage[acronym, toc, nopostdot, nonumberlist]{glossaries}
+\usepackage[style=ieee]{biblatex}
+\usepackage{todonotes}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
+\usepackage[most]{tcolorbox}
+
+%Serifenlose Schrift
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{kpfonts}
+
+% nicht einrücken nach Absatz
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% ============= Code Listing Style (Cassette Futurism Terminal) =============
+\lstdefinestyle{cassette}{
+    backgroundcolor=\color{cfDark},
+    basicstyle=\ttfamily\small\color{cfCream},
+    keywordstyle=\color{cfAmber}\bfseries,
+    commentstyle=\color{cfMidGray}\itshape,
+    stringstyle=\color{cfOrange},
+    numberstyle=\tiny\color{cfMidGray},
+    numbers=left,
+    numbersep=8pt,
+    frame=single,
+    rulecolor=\color{cfAmber},
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b,
+}
+\lstset{style=cassette}
+
+% ============= Cassette Futurism Chapter Decoration =============
+\renewcommand*{\chapterformat}{%
+    {\color{cfAmber}\rule[-3pt]{3pt}{1.2em}}\enskip\thechapter\enskip{\color{cfAmber}\rule[-3pt]{3pt}{1.2em}}%
+}
+\renewcommand*{\chapterheadendvskip}{%
+    \par\nobreak\vskip 0.3em
+    {\color{cfAmber}\rule{\textwidth}{1.5pt}}%
+    \vskip 1em
+}
+
+% ============= Styled Captions =============
+\setkomafont{captionlabel}{\bfseries\color{cfTeal}}
+
+% ============= Cassette Futurism Table Header =============
+\newcommand{\thdr}[1]{\textcolor{white}{\textbf{#1}}}
+
+% ============= Key Finding Box =============
+\newtcolorbox{keybox}[1][]{
+    colback=cfCream,
+    colframe=cfAmber,
+    fonttitle=\bfseries\color{white},
+    colbacktitle=cfTeal,
+    title=#1,
+    arc=1.5mm,
+    boxrule=0.8pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+}
+
+% ============= Kopf- und Fu{\ss}zeile =============
+\pagestyle{fancy}
+%
+\lhead{}
+\chead{}
+\rhead{\slshape \leftmark}
+%%
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+%%
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{cfAmber}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{cfAmber}\leaders\hrule height \footrulewidth\hfill}}
+
+% ============= Table Styling =============
+\newcommand{\tableheadercolor}{\rowcolor{cfTeal}}
+\newcommand{\tablealtcolor}{\rowcolor{cfLightGray}}
+
+% ============= Package Einstellungen & Sonstiges =============
+
+%Use bibliography
+\addbibresource{literature.bib}
+
+%Use Glossaries (noidx mode - no external tool required)
+\makenoidxglossaries
+\input{100_Acronyms.tex}
+
+%Besondere Trennungen
+\hyphenchar\font=\string"7F
+\hyphenation{}
+
+%roemische Aufzaehlungen mit \RM{Zahl}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+
+% ===================== Page-numbering formatting ==========================
+\newcommand\frontmatter{%
+    \clearpage
+  \pagenumbering{roman}}
+
+\makeatletter
+\newcommand\mainmatter{%
+    \clearpage
+    \pagenumbering{arabic}%
+    \renewcommand{\chapter}{%
+        \par\addvspace{2\baselineskip}%
+        \thispagestyle{plain}%
+        \global\@topnum\z@
+        \@afterindentfalse
+        \secdef\@chapter\@schapter
+    }%
+}
+\makeatother
+
+\newcommand\backmatter{%
+    \clearpage
+   }
+
+% ============= Dokumentbeginn =============
+
+\begin{document}
+
+%----------------------------------------------------------------------%
+%      File Inclusion
+%----------------------------------------------------------------------%
+    \input{001_Frontpage.tex}
+
+% ============= Abstract =============
+\clearpage
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+    {\Large\color{cfDark}\textbf{Abstract}}\\[0.3em]
+    {\color{cfAmber}\rule{0.4\textwidth}{1.5pt}}
+\end{center}
+\vspace{1em}
+
+\noindent
+This report presents ANON4REID, a benchmark for evaluating the privacy-utility trade-off in person re-identification (ReID) on the Market-1501 dataset. Four anonymization techniques of increasing strength are applied to all 36,036 images: Gaussian blur with face detection, Stable Diffusion inpainting, ControlNet-based identity replacement (RAD), and Canny edge detection. Utility is measured by the ReID performance of a pre-trained OSNet model with k-reciprocal encoding re-ranking, and privacy is measured by the classification accuracy of a MobileNetV2-based adversarial attacker. Results show that face blurring preserves 80.9\% of baseline mAP but leaves 88.66\% identity leakage, while body-level techniques achieve near-complete privacy (leakage below 0.15\%) at the cost of reducing utility to below 2.3\% of baseline. No intermediate equilibrium exists: the privacy-utility relationship exhibits a cliff rather than a smooth curve. These findings indicate that the features enabling person ReID and identity recognition overlap substantially, making simultaneous privacy and utility preservation infeasible within the evaluated framework.
+
+\vspace{1.5em}
+\noindent\textbf{Keywords:} Person Re-Identification, Anonymization, Privacy, Deep Learning, Market-1501, GDPR
+
+\frontmatter
+    \glsaddall
+    \printnoidxglossary[type=\acronymtype,title=Acronyms]
+    \tableofcontents
+\mainmatter
+    \input{010_Introduction.tex}
+    \input{020_Background.tex}
+    \input{030_Methodology.tex}
+    \input{040_Implementation.tex}
+    \input{050_Results.tex}
+    \input{060_Discussion.tex}
+    \input{070_Conclusion.tex}
+
+
+
+\backmatter
+    \printbibliography[heading=bibintoc,title={References}]
+    \listoffigures
+    \listoftables
+
+%----------------------------------------------------------------------%
+%      End Document
+%----------------------------------------------------------------------%
+
+\end{document}

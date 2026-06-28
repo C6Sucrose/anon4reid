@@ -1,0 +1,39 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Acronyms}{ii}{section*.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation and Problem Statement}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Research Questions}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Contributions}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Background}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Person Re-Identification}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Market-1501 Dataset}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Models}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Anonymization Techniques}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Related Work}{5}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Methodology}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}System Overview}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Anonymization Pipeline}{7}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Level 1: Gaussian Blur with Face Detection}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Resolution Handling}{8}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Level 2: Stable Diffusion Inpainting}{8}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Level 3: Realistic Anonymization by Diffusion (RAD)}{8}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Level 4: Canny Edge Detection}{8}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Evaluation Framework}{9}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Implementation}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Project Scope and Evolution}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Development Environment}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Dataset Generation}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Attacker Model Training}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Interactive Dashboard}{13}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Results}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Utility Evaluation}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Privacy Evaluation}{15}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Privacy--Utility Trade-off}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Effect of K-Reciprocal Re-Ranking}{17}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Discussion}{18}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Key Findings}{18}{section.6.1}%
+\contentsline {section}{\numberline {6.2}State-of-the-Art Context}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Limitations and Future Work}{20}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Conclusion}{20}{chapter.7}%
+\contentsline {chapter}{\nonumberline References}{22}{chapter*.4}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -7,6 +7,7 @@ import torchreid
 
 from tqdm import tqdm
 from torchreid.reid.data.datasets.image.market1501 import Market1501
+from torchreid.reid.utils.rerank import re_ranking
 
 ANON_DATASETS = {
     "Blur": "Market-1501-Blur",
@@ -132,8 +133,12 @@ def _evaluate_full_cmc(engine, query_loader, gallery_loader, dist_metric='euclid
         qf = F.normalize(qf, p=2, dim=1)
         gf = F.normalize(gf, p=2, dim=1)
 
-    distmat = torchreid.reid.metrics.compute_distance_matrix(qf, gf, dist_metric)
-    distmat = distmat.numpy()
+    q_g_dist = torchreid.reid.metrics.compute_distance_matrix(qf, gf, dist_metric).numpy()
+    q_q_dist = torchreid.reid.metrics.compute_distance_matrix(qf, qf, dist_metric).numpy()
+    g_g_dist = torchreid.reid.metrics.compute_distance_matrix(gf, gf, dist_metric).numpy()
+
+    print('Applying k-reciprocal re-ranking ...')
+    distmat = re_ranking(q_g_dist, q_q_dist, g_g_dist)
 
     cmc, mAP = torchreid.reid.metrics.evaluate_rank(
         distmat, q_pids, g_pids, q_camids, g_camids,

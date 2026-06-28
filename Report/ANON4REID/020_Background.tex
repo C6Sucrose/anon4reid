@@ -1,0 +1,74 @@
+\chapter{Background}
+
+\section{Person Re-Identification}
+
+\acrlong{reid} (\acrshort{reid}) is the problem of recognizing whether a person observed in one camera view has been previously observed in another, non-overlapping camera view. Unlike face recognition, which relies on high-resolution facial imagery, \acrshort{reid} must leverage the full body appearance, including clothing, body shape, gait, and accessories, because faces are often occluded, at extreme angles, or too low-resolution to be discriminative in surveillance footage.
+
+Modern \acrshort{reid} systems use deep \acrlong{cnn} architectures that extract discriminative feature embeddings from person images and rank gallery images by distance in the embedding space. Given a query image $q$ and a gallery $\mathcal{G} = \{g_1, g_2, \ldots, g_N\}$, the system computes a feature distance $d(q, g_i)$ for each gallery image and returns a ranked list. Performance is evaluated using two standard metrics:
+
+\textbf{\acrlong{cmc}} (\acrshort{cmc}) measures the probability that a correct match appears within the top-$k$ ranked results. Rank-1 accuracy is the fraction of queries where the top-ranked gallery image is a true match. Higher ranks (5, 10, 20) measure recall at increasing retrieval depths.
+
+\textbf{\acrlong{map}} (\acrshort{map}) averages the precision at each relevant position in the ranked list across all queries, capturing retrieval quality when a query identity has multiple correct matches in the gallery:
+
+\begin{equation}
+    \text{mAP} = \frac{1}{|\mathcal{Q}|} \sum_{q \in \mathcal{Q}} \text{AP}(q), \quad \text{AP}(q) = \frac{1}{|\mathcal{R}_q|} \sum_{k=1}^{N} P(k) \cdot \mathbb{1}[g_k \in \mathcal{R}_q]
+    \label{eq:map}
+\end{equation}
+
+where $\mathcal{Q}$ is the query set, $\mathcal{R}_q$ is the set of relevant gallery images for query $q$, $P(k)$ is the precision at rank $k$, and $\mathbb{1}[\cdot]$ is the indicator function.
+
+
+\section{Market-1501 Dataset}
+\label{sec:market1501}
+
+Market-1501 \cite{zheng2015market1501} is one of the most widely used benchmark datasets for person \acrshort{reid}, collected from six cameras at Tsinghua University. It contains 1,501 identities captured across indoor and outdoor scenes with varying lighting conditions, viewpoints, and occlusion levels. The bounding boxes were produced by the Deformable Part Model (DPM) detector, meaning they include detection noise such as misalignment and partial crops that reflect realistic deployment conditions rather than idealized manual annotations.
+
+The dataset is divided into three splits with \textbf{disjoint identity sets} between training and testing:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \rowcolor{cfTeal} \thdr{Split} & \thdr{Images} & \thdr{Identities} & \thdr{Purpose} \\
+        \midrule
+        \texttt{bounding\_box\_train} & 12,936 & 751 & Training \\
+        \texttt{bounding\_box\_test} & 19,732 & 750 & Gallery \\
+        \texttt{query} & 3,368 & 750 & Query probes \\
+        \midrule
+        \textbf{Total} & \textbf{36,036} & \textbf{1,501} & \\
+        \bottomrule
+    \end{tabular}
+    \caption{Market-1501 dataset composition. Training and test/query identities are completely disjoint.}
+    \label{tab:market1501}
+\end{table}
+
+Each image has a resolution of 64$\times$128 pixels (width $\times$ height). The disjoint identity split (751 training vs.\ 750 test/query IDs) is critical for this project: any identity classifier trained on one partition cannot be directly applied to the other, because the model has never observed the identities present in the opposite partition. The dataset also includes distractor images (ID $= 0000$) and junk images (ID $= -1$) that are excluded from evaluation.
+
+
+\section{Models}
+
+\textbf{\acrlong{osnet}} \cite{zhou2019osnet} is a lightweight \acrshort{cnn} designed specifically for person \acrshort{reid}. Its core innovation is \textit{omni-scale feature learning}, which captures discriminative features at multiple spatial scales within a single network layer. This is achieved through depthwise separable convolutions with different kernel sizes (ranging from $3\times3$ to $7\times7$), each capturing features at a different receptive field. A learned unified aggregation gate dynamically weights the contribution of each scale, allowing the network to focus on the most informative scale for a given input. This multi-scale approach is effective because identity cues in pedestrian images exist at different scales: fine-grained details (logos, text, patterns) at the local level, body part shapes (torso, limbs) at the intermediate level, and overall silhouette at the global level. We use the \texttt{osnet\_x1\_0} variant (2.2M parameters) with pre-trained Market-1501 weights from \texttt{torchreid} \cite{zhou2019torchreid}, producing 512-dimensional feature embeddings compared using Euclidean distance during retrieval.
+
+\textbf{MobileNetV2} \cite{sandler2018mobilenetv2} is a lightweight \acrshort{cnn} architecture designed for mobile and edge deployment. Its key architectural contribution is the \textit{inverted residual block}: rather than the traditional residual pattern of compressing and then expanding features, MobileNetV2 first expands the feature dimensionality via a $1\times1$ pointwise convolution, applies a $3\times3$ depthwise convolution in the expanded space, and then compresses back with a linear (non-ReLU) bottleneck layer. This linear bottleneck prevents information loss from ReLU activations in low-dimensional spaces. In this project, MobileNetV2 serves as the adversarial \textbf{identity classifier} (the ``attacker''). It was selected for this role because: (a)~its lightweight architecture makes training on 750 identity classes practical with limited computational resources, (b)~it is a well-established baseline classifier with known convergence properties and strong performance on standard benchmarks, and (c)~its capacity is sufficient to demonstrate identity leakage without the overfitting concerns that would arise with larger architectures on a relatively small training set. Pre-trained on ImageNet \cite{deng2009imagenet} and fine-tuned on the original Market-1501 test split, its Top-1 accuracy on anonymized query images quantifies the privacy leakage.
+
+
+\section{Anonymization Techniques}
+
+Image anonymization aims to degrade or remove identity-bearing features while preserving as much task-relevant structure as possible. The four techniques used in this project span a spectrum of intervention strength, from targeted face-level modification to complete image transformation.
+
+\textbf{Gaussian Blur} applies a weighted spatial average to pixel neighborhoods using a two-dimensional Gaussian kernel, smoothing high-frequency details proportional to the kernel size and standard deviation ($\sigma$). When applied selectively to the face region, it obscures facial features while preserving body silhouette, clothing color, carried objects, and pose. The degree of obfuscation is controlled by the kernel size and $\sigma$ parameters: larger values produce stronger blurring at the cost of affecting a wider spatial area.
+
+\textbf{Generative Inpainting} uses latent diffusion models \cite{rombach2022ldm} to replace masked image regions with plausible synthetic content. Unlike blurring, which preserves degraded versions of original features, inpainting generates entirely new pixel content conditioned on the surrounding context and a text prompt. The diffusion process operates in a learned latent space: the image is encoded into a lower-dimensional representation, noise is progressively removed through learned denoising steps conditioned on the text prompt, and the result is decoded back into pixel space.
+
+\textbf{Pose-Conditioned Identity Replacement} via ControlNet \cite{zhang2023controlnet} extends text-to-image diffusion models with spatial conditioning signals such as body pose skeletons extracted via OpenPose \cite{cao2017openpose}. Rather than modifying a region of the original image, this approach generates an entirely new synthetic individual conditioned only on the extracted pose skeleton. The original person's visual appearance (clothing, body shape, skin tone) is completely discarded and replaced with a generated identity. Combined with LCM-LoRA \cite{luo2023lcm} for inference acceleration (reducing denoising steps from 50 to 8), this enables practical full-body identity replacement at dataset scale.
+
+\textbf{Canny Edge Detection} \cite{canny1986edge} extracts structural contours using gradient-based edge detection with dual thresholds for hysteresis. The output is a binary image retaining only edges, discarding all color, texture, and fine-grained appearance information. This technique preserves the body outline and major structural features (limbs, carried objects) while stripping every other visual cue.
+
+
+\section{Related Work}
+
+The most widely deployed anonymization techniques in visual surveillance are face-centric: Gaussian blurring, pixelation, and black-bar masking. These methods are computationally inexpensive and straightforward to implement, but they operate on the implicit assumption that facial appearance is the primary carrier of identity information. As person \acrshort{reid} research has demonstrated, body-level features, particularly clothing texture, body proportions, and carried accessories, can be equally or more discriminative than facial features, especially in the low-resolution footage typical of surveillance cameras.
+
+Generative models have enabled more sophisticated anonymization strategies that go beyond simple obfuscation. GANs were among the first deep learning approaches to face de-identification, generating synthetic replacement faces while attempting to preserve attributes such as head pose and expression. More recently, diffusion-based models \cite{rombach2022ldm} have demonstrated superior image quality and training stability compared to GANs. ControlNet \cite{zhang2023controlnet} enables conditioning on spatial signals such as body pose for full-body identity replacement, while inference acceleration via \acrshort{lcm}-LoRA \cite{luo2023lcm} has made these approaches practical for processing datasets with tens of thousands of images.
+
+Evaluating anonymization effectiveness requires an adversarial perspective: a model (typically a \acrshort{cnn} classifier or \acrshort{reid} system) trained on original, non-anonymized data is applied to anonymized images, and the accuracy drop quantifies the privacy gain. The choice of attack model determines the strength of the evaluation: a weak attacker may overestimate privacy protection, while a strong attacker provides a more conservative and realistic assessment. This project contributes by systematically benchmarking four techniques on a unified evaluation framework that measures both embedding-based re-identification (utility metrics functioning as an implicit attack) and explicit identity classification (MobileNetV2 attacker), covering the two primary attack vectors against anonymized surveillance imagery.

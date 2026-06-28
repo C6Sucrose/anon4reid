@@ -7,6 +7,7 @@ import torchreid
 
 from tqdm import tqdm
 from torchreid.reid.data.datasets.image.market1501 import Market1501
+from torchreid.reid.utils.rerank import re_ranking
 
 class CustomMarket1501(Market1501):
     dataset_dir = 'Market-1501'
@@ -162,11 +163,13 @@ def _evaluate_full_cmc(
         qf = F.normalize(qf, p=2, dim=1)
         gf = F.normalize(gf, p=2, dim=1)
 
-    print(f'Computing distance matrix with metric={dist_metric} ...')
-    distmat = torchreid.reid.metrics.compute_distance_matrix(
-        qf, gf, dist_metric
-    )
-    distmat = distmat.numpy()
+    print(f'Computing distance matrices with metric={dist_metric} ...')
+    q_g_dist = torchreid.reid.metrics.compute_distance_matrix(qf, gf, dist_metric).numpy()
+    q_q_dist = torchreid.reid.metrics.compute_distance_matrix(qf, qf, dist_metric).numpy()
+    g_g_dist = torchreid.reid.metrics.compute_distance_matrix(gf, gf, dist_metric).numpy()
+
+    print('Applying k-reciprocal re-ranking ...')
+    distmat = re_ranking(q_g_dist, q_q_dist, g_g_dist)
 
     print('Computing CMC and mAP ...')
     cmc, mAP = torchreid.reid.metrics.evaluate_rank(

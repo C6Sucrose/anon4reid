@@ -1,0 +1,19 @@
+\chapter{Conclusion}
+
+This project presented ANON4REID, a systematic benchmark for evaluating the privacy--utility trade-off in person re-identification on the Market-1501 dataset. Four anonymization techniques of increasing strength were applied across all 36,036 images: Gaussian blur with MediaPipe face detection (L1), Stable Diffusion inpainting (L2), Realistic Anonymization by Diffusion with ControlNet and LCM-LoRA (L3), and Canny edge detection (L4).
+
+Utility was measured by the \acrshort{reid} performance of a pre-trained \acrshort{osnet} model, and privacy was measured by the identity classification accuracy of a MobileNetV2-based adversarial attacker trained on the original test images. The results reveal a stark trade-off:
+
+\begin{keybox}[Summary of Results]
+\begin{itemize}[noitemsep]
+    \item Face-only blurring (L1) retains 80.9\% of baseline mAP but provides almost no privacy protection, with the attacker still achieving 88.66\% Top-1 accuracy, compared to a random-chance baseline of 0.13\%.
+    \item Body-level anonymization (L2--L4) achieves strong privacy protection ($\geq$88.24\%) but reduces \acrshort{reid} utility to below 2.3\% of baseline.
+    \item No intermediate ``sweet spot'' was found: the privacy--utility relationship exhibits a cliff rather than a smooth curve, with no evaluated technique achieving both meaningful privacy and usable \acrshort{reid} performance simultaneously.
+\end{itemize}
+\end{keybox}
+
+These findings demonstrate that in the context of person \acrshort{reid} on low-resolution pedestrian imagery, the features that enable cross-camera matching and the features that enable identity recognition are fundamentally overlapping. Effective anonymization necessarily destroys re-identification capability, and preserving re-identification capability necessarily leaves identity information exposed to adversarial classifiers.
+
+This has practical implications for the deployment of privacy-preserving surveillance systems under GDPR and similar regulatory frameworks. Face blurring alone is insufficient against learned adversaries that exploit body-level features, and stronger anonymization techniques that do provide robust privacy protection render \acrshort{reid} functionality inoperative. Organizations seeking to deploy \acrshort{reid} systems in privacy-sensitive contexts must acknowledge this fundamental tension rather than assuming that simple face anonymization provides adequate protection.
+
+The complete evaluation pipeline, including anonymization scripts, attacker training, utility and privacy evaluation, and an interactive Streamlit dashboard, is provided as open-source software to support reproducibility and future research.

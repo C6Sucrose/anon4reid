@@ -1,0 +1,258 @@
+\chapter{Results}
+
+\section{Utility Evaluation}
+
+The pre-trained \acrshort{osnet} (\texttt{osnet\_x1\_0}) model was evaluated on the original Market-1501 dataset and all anonymized variants using k-reciprocal encoding re-ranking \cite{zhong2017reranking} applied to the Euclidean distance matrix. Table~\ref{tab:baseline} reports the baseline performance, confirming that the pretrained model achieves Rank-1 accuracy of 92.04\% and mAP of 86.23\% with re-ranking, consistent with published results for \texttt{osnet\_x1\_0}. These values serve as the reference against which all anonymized variants are compared. Table~\ref{tab:utility} reports the anonymized results.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lc@{}}
+        \toprule
+        \rowcolor{cfTeal} \thdr{Metric} & \thdr{Value} \\
+        \midrule
+        mAP & 0.8623 \\
+        Rank-1 & 0.9204 \\
+        Rank-5 & 0.9469 \\
+        Rank-10 & 0.9587 \\
+        Rank-20 & 0.9694 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Baseline \acrshort{osnet} performance on the original Market-1501 dataset.}
+    \label{tab:baseline}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccccc@{}}
+        \toprule
+        \rowcolor{cfTeal} \thdr{Level} & \thdr{mAP} & \thdr{Rank-1} & \thdr{Rank-5} & \thdr{Rank-10} & \thdr{Rank-20} \\
+        \midrule
+        L1: Blur & 0.6976 & 0.8070 & 0.8809 & 0.9008 & 0.9264 \\
+        L2: SDInpaint & 0.0198 & 0.0546 & 0.1339 & 0.1719 & 0.2227 \\
+        L3: RAD & 0.0015 & 0.0006 & 0.0050 & 0.0101 & 0.0202 \\
+        L4: Edge & 0.0114 & 0.0235 & 0.0600 & 0.0855 & 0.1191 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Utility results: \acrshort{osnet} \acrshort{reid} performance across anonymization levels.}
+    \label{tab:utility}
+\end{table}
+
+L1 (Blur) retains 80.9\% of baseline mAP (0.6976 vs.\ 0.8623), indicating that face-only blurring preserves the body-level features that \acrshort{osnet} primarily relies on for cross-camera matching. The Rank-1 accuracy of 80.70\% means that four out of five queries still retrieve the correct identity as the top result despite face anonymization. L2 (SDInpaint) drops mAP to 2.3\% of baseline (0.0198), confirming that replacing the central torso region destroys most discriminative features. L3 (RAD) produces the most severe degradation at 0.17\% of baseline (mAP = 0.0015), as full-body replacement generates entirely new appearances with no identity correlation to the original. L4 (Edge) retains slightly more utility than RAD at 1.3\% of baseline (mAP = 0.0114), because preserved edge structure encodes some body-shape information that enables marginally better matching. Figure~\ref{fig:map_comparison} visualizes the mAP degradation; Figure~\ref{fig:cmc_curves} compares the \acrlong{cmc} curves across all levels, showing that L1 closely tracks the baseline while L2--L4 remain near zero across all rank thresholds.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            width=0.85\columnwidth,
+            height=6cm,
+            bar width=14pt,
+            ylabel={mAP},
+            symbolic x coords={Baseline, L1: Blur, L2: SDInpaint, L3: RAD, L4: Edge},
+            xtick=data,
+            xticklabel style={rotate=25, anchor=east, font=\small},
+            ymin=0, ymax=1.0,
+            nodes near coords,
+            nodes near coords style={font=\tiny, above},
+            every node near coord/.append style={/pgf/number format/.cd, fixed, precision=3},
+            grid=major,
+            grid style={gray!20},
+            axis line style={cfDark},
+            tick style={cfDark},
+        ]
+            \addplot[fill=cfTeal!70, draw=cfTeal] coordinates {
+                (Baseline, 0.8623)
+                (L1: Blur, 0.6976)
+                (L2: SDInpaint, 0.0198)
+                (L3: RAD, 0.0015)
+                (L4: Edge, 0.0114)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Mean Average Precision (mAP) across anonymization levels. Baseline represents the original Market-1501 dataset evaluated with OSNet.}
+    \label{fig:map_comparison}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.85\columnwidth,
+            height=7cm,
+            xlabel={Rank},
+            ylabel={Matching Accuracy},
+            xmin=0, xmax=22,
+            ymin=0, ymax=1.05,
+            xtick={1,5,10,20},
+            grid=major,
+            grid style={gray!20},
+            axis line style={cfDark},
+            tick style={cfDark},
+            legend style={at={(0.5,-0.22)}, anchor=north, font=\small, fill=white, fill opacity=0.9, draw=cfDark, legend columns=3},
+            legend cell align=left,
+        ]
+            \addplot[cfDark, very thick, mark=pentagon*, mark size=3pt]
+                coordinates {(1,0.9204) (5,0.9469) (10,0.9587) (20,0.9694)};
+            \addlegendentry{Baseline}
+
+            \addplot[cfAmber, thick, mark=*, mark size=2.5pt]
+                coordinates {(1,0.8070) (5,0.8809) (10,0.9008) (20,0.9264)};
+            \addlegendentry{L1: Blur}
+
+            \addplot[cfOrange, thick, mark=square*, mark size=2.5pt]
+                coordinates {(1,0.0546) (5,0.1339) (10,0.1719) (20,0.2227)};
+            \addlegendentry{L2: SDInpaint}
+
+            \addplot[cfRed, thick, mark=triangle*, mark size=3pt]
+                coordinates {(1,0.0006) (5,0.0050) (10,0.0101) (20,0.0202)};
+            \addlegendentry{L3: RAD}
+
+            \addplot[cfTeal, thick, mark=diamond*, mark size=3pt]
+                coordinates {(1,0.0235) (5,0.0600) (10,0.0855) (20,0.1191)};
+            \addlegendentry{L4: Edge}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{\acrlong{cmc} curves for all anonymization levels and the baseline. L1 (Blur) closely tracks the Baseline, while L2--L4 remain near zero across all ranks.}
+    \label{fig:cmc_curves}
+\end{figure}
+
+
+\section{Privacy Evaluation}
+
+Table~\ref{tab:privacy} presents the identity classification accuracy of the MobileNetV2 attacker on each anonymized query set (3,368 query images, excluding junk and distractor images).
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \rowcolor{cfTeal} \thdr{Level} & \thdr{Top-1 Accuracy (\%)} & \thdr{Correct} & \thdr{Total} \\
+        \midrule
+        L1: Blur & 88.66 & 2,986 & 3,368 \\
+        L2: SDInpaint & 11.76 & 396 & 3,368 \\
+        L4: Edge & 0.15 & 5 & 3,368 \\
+        L3: RAD & 0.15 & 5 & 3,368 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection.}
+    \label{tab:privacy}
+\end{table}
+
+L1 provides minimal privacy protection: 88.66\% leakage means the attacker correctly identifies 2,986 of 3,368 query individuals despite face blurring, confirming that MobileNetV2 learns to rely on body-level features (clothing, body shape, accessories) rather than facial features alone. For reference, random guessing across 750 identity classes would yield approximately 0.13\% accuracy. L2 reduces leakage to 11.76\% (396 correct), a substantial improvement attributable to the destruction of torso-level features; the residual leakage likely corresponds to images where the inpainting mask did not fully cover discriminative features at image boundaries. L3 (RAD) and L4 (Edge) both achieve 0.15\% leakage (5 out of 3,368), which is statistically indistinguishable from random chance given 750 classes, effectively confirming that these techniques reduce the attacker to guessing. Figure~\ref{fig:privacy_leakage} visualizes the identity leakage.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            width=0.85\columnwidth,
+            height=6cm,
+            bar width=18pt,
+            ylabel={Top-1 Accuracy (\%)},
+            symbolic x coords={L1: Blur, L2: SDInpaint, L4: Edge, L3: RAD},
+            xtick=data,
+            xticklabel style={font=\small},
+            ymin=0, ymax=105,
+            nodes near coords,
+            nodes near coords style={font=\small, above},
+            every node near coord/.append style={/pgf/number format/.cd, fixed, precision=2, fixed zerofill},
+            grid=major,
+            grid style={gray!20},
+            axis line style={cfDark},
+            tick style={cfDark},
+        ]
+            \addplot[fill=cfRed!60, draw=cfRed] coordinates {
+                (L1: Blur, 88.66)
+                (L2: SDInpaint, 11.76)
+                (L4: Edge, 0.15)
+                (L3: RAD, 0.15)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Privacy leakage (MobileNetV2 attacker Top-1 accuracy) across anonymization levels. L3 (RAD) and L4 (Edge) reduce the attacker to near-random performance.}
+    \label{fig:privacy_leakage}
+\end{figure}
+
+
+\section{Privacy--Utility Trade-off}
+
+Table~\ref{tab:tradeoff} summarizes the combined privacy--utility metrics.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcccc@{}}
+        \toprule
+        \rowcolor{cfTeal} \thdr{Level} & \thdr{mAP} & \thdr{Leak (\%)} & \thdr{Protection (\%)} & \thdr{mAP \% of BL} \\
+        \midrule
+        Baseline & 0.8623 & n/a & n/a & 100.0 \\
+        L1: Blur & 0.6976 & 88.66 & 11.34 & 80.9 \\
+        L2: SDInpaint & 0.0198 & 11.76 & 88.24 & 2.3 \\
+        L3: RAD & 0.0015 & 0.15 & 99.85 & 0.17 \\
+        L4: Edge & 0.0114 & 0.15 & 99.85 & 1.3 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text{Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained.}
+    \label{tab:tradeoff}
+\end{table}
+
+The trade-off reveals a sharp cliff rather than a gradual continuum. L1 retains most utility (mAP = 0.6976, 80.9\% of baseline) but provides almost no privacy (88.66\% leakage, only 11.34\% protection). L2 crosses the cliff: it achieves substantial privacy (88.24\% protection) but at steep utility cost (mAP drops to 0.0198, retaining only 2.3\% of baseline). L3 and L4 achieve near-perfect privacy (99.85\% protection) with near-zero utility (mAP $< 0.02$). No ``sweet spot'' was found where reasonable privacy coexists with acceptable utility: there is no evaluated configuration where, for example, 50\% privacy protection accompanies 50\% utility retention. This suggests that the features required for \acrshort{reid} (clothing appearance, body proportions, carried objects) and those revealing identity to a classifier overlap substantially, making the trade-off inherently discontinuous rather than smoothly adjustable. Figure~\ref{fig:tradeoff_scatter} plots this relationship, with the empty ``Ideal Zone'' (bottom-right: high utility, low leakage) visually confirming the absence of a favorable operating point.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.85\columnwidth,
+            height=7cm,
+            xlabel={mAP (Utility)},
+            ylabel={Privacy Leakage (\%)},
+            xmin=-0.02, xmax=0.95,
+            ymin=-5, ymax=100,
+            grid=major,
+            grid style={gray!20},
+            axis line style={cfDark},
+            tick style={cfDark},
+            legend pos=north east,
+            legend style={font=\small},
+        ]
+            % Ideal zone shading (high utility, low leakage)
+            \fill[cfGreen!15] (axis cs:0.3,-5) rectangle (axis cs:0.95,20);
+            \node[font=\tiny, cfGreen!80!black] at (axis cs:0.63,10) {Ideal Zone};
+
+            \addplot[only marks, mark=*, mark size=4pt, cfAmber, thick]
+                coordinates {(0.6976, 88.66)} node[above right, font=\small] {L1: Blur};
+            \addplot[only marks, mark=square*, mark size=4pt, cfOrange, thick]
+                coordinates {(0.0198, 11.76)} node[above right, font=\small] {L2: SDInpaint};
+            \addplot[only marks, mark=triangle*, mark size=5pt, cfRed, thick]
+                coordinates {(0.0015, 0.15)} node[above right, font=\small] {L3: RAD};
+            \addplot[only marks, mark=diamond*, mark size=5pt, cfTeal, thick]
+                coordinates {(0.0114, 0.15)} node[below right, font=\small] {L4: Edge};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Privacy--utility trade-off scatter plot. The ideal zone (high utility, low leakage) in the bottom-right is unoccupied, illustrating the fundamental tension between privacy and \acrshort{reid} utility.}
+    \label{fig:tradeoff_scatter}
+\end{figure}
+
+
+\section{Effect of K-Reciprocal Re-Ranking}
+
+All utility results reported above use k-reciprocal encoding \cite{zhong2017reranking} as a post-processing step on the Euclidean distance matrix. This technique refines the initial ranking by exploiting the k-reciprocal nearest neighbor structure: if two images are mutual nearest neighbors, their distance is reinforced; if not, it is penalized. Re-ranking operates entirely at evaluation time and requires no model retraining.
+
+An initial evaluation was conducted without re-ranking, using raw Euclidean distance retrieval only. Table~\ref{tab:reranking_comparison} compares the mAP results before and after applying k-reciprocal encoding.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \rowcolor{cfTeal} \thdr{Level} & \thdr{mAP (w/o)} & \thdr{mAP (w/)} & \thdr{$\Delta$ mAP} \\
+        \midrule
+        Baseline & 0.5720 & 0.8623 & +0.2903 \\
+        L1: Blur & 0.3942 & 0.6976 & +0.3034 \\
+        L2: SDInpaint & 0.0172 & 0.0198 & +0.0026 \\
+        L3: RAD & 0.0015 & 0.0015 & +0.0000 \\
+        L4: Edge & 0.0093 & 0.0114 & +0.0021 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding.}
+    \label{tab:reranking_comparison}
+\end{table}
+
+Re-ranking produces substantial improvements for the Baseline (+0.2903 mAP) and L1 (+0.3034 mAP), where the feature embeddings contain sufficient discriminative information for the k-reciprocal neighbor structure to be meaningful. For L2--L4, the improvement is negligible ($\Delta < 0.003$) because the anonymization has destroyed the identity-bearing features to such a degree that no post-processing on the distance matrix can recover useful ranking information. This confirms that the privacy--utility cliff is robust to the choice of retrieval strategy: re-ranking amplifies the absolute gap between L1 and L2--L4 but does not alter the fundamental cliff structure.

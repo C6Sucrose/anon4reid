@@ -1,0 +1,47 @@
+\chapter{Discussion}
+
+\section{Key Findings}
+
+The experimental results reveal several significant patterns in the relationship between anonymization, privacy, and re-identification utility.
+
+\textbf{Face Blurring is Insufficient for Privacy.}
+Level~1 (Gaussian blur on the face region) provides virtually no privacy protection against a learned attacker. The MobileNetV2 classifier achieves 88.66\% Top-1 accuracy on face-blurred images, compared to a random-guessing baseline of $\frac{1}{750} \approx 0.13\%$ for 750 identity classes. This result demonstrates that identity classification models can exploit clothing texture, body shape, carried objects, and other non-facial appearance cues that face blurring leaves intact. The high leakage persists because \acrshort{cnn} classifiers are not limited to human-interpretable features: they learn discriminative patterns across the entire spatial extent of the input image, including correlations between background context, clothing color distributions, and body proportions.
+
+\begin{keybox}[Practical Implication]
+Face blurring, the most commonly deployed anonymization technique in real-world surveillance systems, may create a false sense of privacy compliance when adversaries have access to modern deep learning classifiers. Organizations relying solely on face blurring for GDPR compliance should consider that body-level features remain fully exposed and exploitable.
+\end{keybox}
+
+\textbf{The Privacy--Utility Cliff.}
+Rather than a smooth, continuous trade-off curve, the results reveal a sharp ``cliff'' between L1 and L2. Level~1 retains 80.9\% of baseline mAP but fails on privacy (88.66\% leakage); Levels~2--4 achieve strong privacy ($\geq$88.24\% protection) but retain less than 2.3\% of baseline mAP. There is no intermediate region where, for example, 50\% privacy protection coexists with 50\% utility retention. This cliff arises because the visual features that make a person re-identifiable across cameras (clothing appearance, body proportions, carried objects) are precisely the same features that an identity classifier exploits. Partial anonymization either leaves these features intact (L1) or destroys them (L2--L4), with no gradual middle ground observable in the evaluated techniques.
+
+\textbf{Generative vs.\ Deterministic Methods.}
+SD Inpaint (L2), RAD (L3), and Edge detection (L4) achieve comparable privacy protection ($\geq$88\%) through fundamentally different mechanisms: selective content replacement, full-body synthesis, and structural reduction respectively. L3 and L4 both achieve identical leakage rates of 0.15\% (5 correct classifications out of 3,368 queries), which is consistent with random chance given 750 identity classes. The comparable privacy outcomes across these diverse techniques suggest that the computational cost of generative models may not be justified for privacy protection alone: Canny edge detection achieves the same 0.15\% leakage as the ControlNet-based RAD pipeline at a fraction of the computational cost and without requiring GPU acceleration. The advantage of generative methods lies in utility preservation: L2 retains more structural information (Rank-20 of 22.27\%) than L4 (11.91\%), which may matter in applications where partial re-identification capability is acceptable.
+
+\textbf{Utility Evaluation as an Implicit Privacy Attack.}
+The \acrshort{osnet} model used for utility measurement is trained on the Market-1501 training split (751 IDs) with disjoint identities from the test/query split (750 IDs). Because \acrshort{reid} models learn generalizable feature embeddings rather than identity-specific classifiers, \acrshort{osnet} can match unseen identities through nearest-neighbor retrieval in the embedding space. This means the utility metrics (mAP, \acrshort{cmc}) already constitute an implicit embedding-based privacy attack: any query image that is successfully matched to its correct gallery counterpart has been effectively re-identified. The dedicated MobileNetV2 attacker measures a complementary threat model (direct closed-set classification rather than open-set retrieval), so together the two evaluations cover both major attack vectors against anonymized surveillance data.
+
+
+\section{State-of-the-Art Context}
+
+\textbf{Model positioning.} \acrshort{osnet} (\texttt{osnet\_x1\_0}) \cite{zhou2019osnet} occupies a mid-range position in the current person \acrshort{reid} landscape. The model was chosen for its balance between discriminative power and lightweight architecture (2.2M parameters), making it representative of practical deployment scenarios where computational resources are constrained. Our measured baseline (mAP = 86.23\%, Rank-1 = 92.04\%) uses Euclidean distance retrieval with k-reciprocal encoding re-ranking \cite{zhong2017reranking}, a standard post-processing technique that refines rankings by exploiting mutual nearest-neighbor relationships.
+
+More recent architectures, including vision transformer-based models (e.g., TransReID) and foundation model adaptations (e.g., CLIP-ReID), achieve substantially higher baseline performance on Market-1501 through richer feature representations. Using such models would likely amplify the privacy--utility cliff observed in our experiments: stronger feature extractors capture more identity-discriminative information, meaning (a)~the utility baseline would be higher, (b)~the utility degradation under anonymization would be proportionally larger, and (c)~a stronger implicit privacy attack via the utility metrics would make the privacy challenge more acute. The cliff we observe with a mid-range model therefore represents a \textit{lower bound} on the severity of the trade-off.
+
+\textbf{Privacy evaluation context.} Most prior anonymization studies evaluate privacy through re-identification accuracy alone, treating the utility metric drop as an implicit privacy measure. Our framework separates these concerns by introducing an explicit adversarial identity classifier (MobileNetV2) alongside the \acrshort{reid}-based utility evaluation. This dual-metric approach reveals that face blurring's apparent utility preservation (80.9\% mAP retention) coexists with near-total privacy failure (88.66\% attacker accuracy), a disconnect that a utility-only evaluation would not expose.
+
+\textbf{Anonymization landscape.} The sharp privacy--utility cliff we observe is consistent with findings from related work on privacy in visual data: identity features and task-relevant features are often inseparable when the task itself depends on individual appearance. Our contribution is quantifying this relationship across a spectrum of anonymization techniques on a standardized benchmark, providing empirical evidence that the theoretical tension between privacy and utility manifests as a practical cliff rather than a smooth, negotiable curve.
+
+
+\section{Limitations and Future Work}
+
+Several limitations should be acknowledged when interpreting these results.
+
+\textbf{Single dataset.} All experiments used Market-1501, which contains low-resolution (64$\times$128) images from six cameras at a single location. The privacy--utility trade-off may differ on higher-resolution datasets (e.g., DukeMTMC-reID, MSMT17) where face detection performs more reliably and generative models produce higher-quality outputs.
+
+\textbf{Single \acrshort{reid} model.} Only \acrshort{osnet} (\texttt{osnet\_x1\_0}) was used for utility evaluation. More recent or larger architectures (e.g., TransReID, CLIP-ReID) with different feature extraction strategies might show different sensitivity to anonymization.
+
+\textbf{Single attacker.} MobileNetV2 represents one specific threat model (supervised classification). Stronger attackers, such as ensemble classifiers, metric learning models, or contrastive learning-based feature extractors, could potentially extract identity information that MobileNetV2 misses, meaning the reported privacy leakage figures represent a lower bound on true vulnerability.
+
+\textbf{Fixed anonymization parameters.} Each level used a single parameter configuration (e.g., kernel size 15, $\sigma = 30$ for L1). Exploring a range of parameter strengths within each level would map the intra-level trade-off curve and potentially identify intermediate configurations.
+
+Future directions include: exploring parametric anonymization strengths within each level to map the cliff transition more precisely; testing against stronger and more diverse attacker models (ensemble classifiers, contrastive learning, few-shot methods); applying the evaluation framework to higher-resolution datasets; and investigating whether privacy-preserving \acrshort{reid} methods can be trained on anonymized data to recover some utility while maintaining privacy guarantees.

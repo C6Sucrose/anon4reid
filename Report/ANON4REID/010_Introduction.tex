@@ -1,0 +1,33 @@
+\chapter{Introduction}
+
+\section{Motivation and Problem Statement}
+
+Visual surveillance networks are deployed extensively in public spaces, transportation hubs, retail environments, and urban centers. These systems generate vast quantities of imagery capturing individuals as they move through monitored areas. Person re-identification (\acrshort{reid}) is the task of matching individuals across non-overlapping camera views within such networks, enabling applications such as cross-camera tracking, forensic investigations, and behavioral analysis. The effectiveness of \acrshort{reid} systems relies on extracting discriminative visual features from person images, including facial appearance, clothing texture, body shape, carried objects, and gait patterns.
+
+This capability is in direct conflict with the right to privacy. The \acrlong{gdpr} \cite{gdpr2016} establishes data protection as a fundamental right within the European Union. Article~5 mandates purpose limitation and data minimization: surveillance operators must collect only the data necessary for their stated purpose and retain it no longer than required. Articles~17 and~25 enshrine the right to erasure and the principle of data protection by design, requiring that privacy safeguards be integrated into systems from the outset rather than applied as an afterthought. The visual features that allow a \acrshort{reid} model to recognize an individual across cameras are precisely the features that constitute personally identifiable information under GDPR. Anonymization offers a potential resolution by degrading or removing identity-bearing features from surveillance imagery before storage or processing. The central question is whether this balance is achievable in practice: \textbf{How much privacy can be gained before the \acrshort{reid} system becomes functionally useless?}
+
+This project investigates the privacy--utility trade-off by systematically applying four levels of image anonymization to the Market-1501 benchmark dataset \cite{zheng2015market1501} and measuring the resulting impact on both \acrshort{reid} accuracy (utility) and resistance to identity classification attacks (privacy). The four anonymization levels represent a progressive spectrum: from targeted face blurring (Level~1), through generative content replacement (Levels~2 and~3), to complete structural reduction (Level~4). For each technique, we quantify:
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Utility:} The degradation in \acrshort{reid} performance, measured by \acrlong{map} and \acrlong{cmc} curves (Rank-1, 5, 10, 20).
+    \item \textbf{Privacy:} The resistance to an adversarial identity classifier (MobileNetV2), measured by Top-1 classification accuracy on the anonymized query set.
+\end{itemize}
+
+\section{Research Questions}
+
+\begin{enumerate}[noitemsep]
+    \item How does each anonymization technique affect the re-identification performance of a pre-trained \acrshort{osnet} model on Market-1501?
+    \item To what extent does each technique protect against identity recognition by an adversarial classifier?
+    \item What is the shape of the privacy--utility trade-off curve, and does a ``sweet spot'' exist where reasonable privacy is achieved with acceptable utility loss?
+\end{enumerate}
+
+\section{Contributions}
+
+This project makes the following contributions:
+
+\begin{enumerate}[noitemsep]
+    \item A four-level anonymization pipeline for pedestrian images, integrating traditional computer vision methods (Gaussian blur, Canny edge detection) with generative AI approaches (Stable Diffusion inpainting, ControlNet-guided diffusion with LCM-LoRA acceleration). The levels are designed to represent increasing intervention strength and span the practical spectrum of anonymization strategies.
+    \item A privacy evaluation framework using a MobileNetV2-based adversarial identity classifier trained on the original dataset to measure identity leakage across anonymization levels. This framework treats privacy as a measurable quantity rather than a binary property.
+    \item A quantitative privacy--utility trade-off analysis on all 36,036 images of the Market-1501 dataset, providing empirical evidence for the fundamental tension between anonymization strength and \acrshort{reid} utility. Results are visualized through an interactive Streamlit dashboard for exploratory analysis.
+    \item A resolution-handling pipeline that enables generative models designed for higher-resolution inputs to process the small 64$\times$128~pixel Market-1501 images without loss of data compatibility.
+\end{enumerate}
