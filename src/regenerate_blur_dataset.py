@@ -16,7 +16,7 @@ from blur_anonymizer import load_blur_pipeline, anonymize_blur
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     src_root = os.path.join(base_dir, "data", "raw", "Market-1501")
-    dst_root = os.path.join(base_dir, "data", "raw", "Market-1501-Blur")
+    dst_root = os.path.join(base_dir, "data", "processed", "Market-1501-Blur")
 
     splits = ["query", "bounding_box_test", "bounding_box_train"]
 
@@ -24,7 +24,6 @@ def main():
     print("MediaPipe face detection loaded.\n")
 
     total_processed = 0
-    total_fallback = 0
     t0 = time.time()
 
     for split in splits:
@@ -39,14 +38,11 @@ def main():
         fnames = sorted(f for f in os.listdir(src_dir) if f.endswith(".jpg"))
         print(f"{split}: {len(fnames)} images")
 
-        fallback = 0
         for fname in tqdm(fnames, desc=split):
             img = Image.open(os.path.join(src_dir, fname)).convert("RGB")
             result = anonymize_blur(img)
             result.save(os.path.join(dst_dir, fname))
             total_processed += 1
-
-        total_fallback += fallback
 
     elapsed = time.time() - t0
     print(f"\nDone. {total_processed} images in {elapsed:.1f}s "

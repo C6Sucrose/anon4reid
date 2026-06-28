@@ -1,19 +1,19 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Market-1501 dataset composition. Training and test/query identities are completely disjoint.}}{3}{table.2.1}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Market-1501 dataset composition. Training and test/query identities are completely disjoint.}}{3}{table.caption.4}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of the four anonymization levels.}}{7}{table.3.1}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of the four anonymization levels.}}{7}{table.caption.6}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Project development phases.}}{11}{table.4.1}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Principal software dependencies.}}{11}{table.4.2}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces MobileNetV2 attacker training configuration.}}{12}{table.4.3}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Project development phases.}}{11}{table.caption.7}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Principal software dependencies.}}{11}{table.caption.8}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces MobileNetV2 attacker training configuration.}}{12}{table.caption.9}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Baseline \acrshort {osnet} performance on the original Market-1501 dataset.}}{13}{table.5.1}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Utility results: \acrshort {osnet} \acrshort {reid} performance across anonymization levels.}}{14}{table.5.2}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection.}}{15}{table.5.3}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text {Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained.}}{16}{table.5.4}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding.}}{17}{table.5.5}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Baseline \acrshort {osnet} performance on the original Market-1501 dataset.}}{13}{table.caption.10}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Utility results: \acrshort {osnet} \acrshort {reid} performance across anonymization levels.}}{14}{table.caption.11}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Privacy results: MobileNetV2 attacker Top-1 accuracy on anonymized query images. Lower accuracy indicates stronger privacy protection.}}{15}{table.caption.14}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Combined privacy--utility trade-off summary. ``Leak'' is the attacker's Top-1 accuracy; ``Protection'' is $100 - \text {Leak}$; ``mAP \% of BL'' is the fraction of baseline mAP retained.}}{16}{table.caption.16}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding.}}{17}{table.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

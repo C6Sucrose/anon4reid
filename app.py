@@ -16,16 +16,16 @@ LEVELS = ["Baseline", "Blur", "SDInpaint", "Edge", "RAD"]
 LEVEL_LABELS = {
     "Baseline": "Baseline (No Anonymization)",
     "Blur": "L1: Gaussian Blur",
-    "Edge": "L3: Edge Silhouette",
-    "RAD": "L4: RAD (Remove & Diffuse)",
+    "Edge": "L4: Edge Silhouette",
+    "RAD": "L3: RAD (Realistic Anonymization by Diffusion)",
     "SDInpaint": "L2: SD Inpaint",
 }
 LEVEL_DESCRIPTIONS = {
     "Baseline": "Original Market-1501 images with no anonymization applied. Full identity information is preserved.",
     "Blur": "Gaussian blur applied to the detected face region (MediaPipe) or top 28% of the image as fallback. Preserves body shape and clothing while obscuring facial features.",
-    "SDInpaint": "Stable Diffusion inpainting replaces the head region with AI-generated content. Preserves body proportions but replaces identity-bearing features with synthetic ones.",
+    "SDInpaint": "Stable Diffusion inpainting replaces the central torso region with AI-generated content. Preserves body proportions but removes identity-bearing features from the masked area.",
     "Edge": "Canny edge detection converts the full image to an edge silhouette. Destroys all texture and color information, retaining only structural contours.",
-    "RAD": "Remove and Diffuse — removes the person entirely and regenerates the region using diffusion. The most aggressive technique, destroying virtually all identity cues.",
+    "RAD": "Realistic Anonymization by Diffusion — replaces the person with a synthetically generated individual preserving the original pose via OpenPose conditioning. The most aggressive technique, destroying virtually all identity cues.",
 }
 LEVEL_COLORS = {
     "Baseline": "#6366f1",

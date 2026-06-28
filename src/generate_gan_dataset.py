@@ -18,11 +18,11 @@ from tqdm import tqdm
 
 from sd_inpaint import load_sd_inpaint_pipeline, anonymize_sd_inpaint
 
-
-INPUT_DIR  = "../data/raw/Market-1501"
-OUTPUT_DIR = "../data/Market-1501-SDInpaint"
+BASE_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+INPUT_DIR  = os.path.join(BASE_DIR, "data", "raw", "Market-1501")
+OUTPUT_DIR = os.path.join(BASE_DIR, "data", "processed", "Market-1501-SDInpaint")
 DEVICE     = "cuda" if torch.cuda.is_available() else "cpu"
-SPLITS     = ["query"]  # Start with query to verify pipeline, add others when ready
+SPLITS     = ["query", "bounding_box_test", "bounding_box_train"]
 
 
 def get_images(split_dir: str):

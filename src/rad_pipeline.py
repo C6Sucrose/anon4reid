@@ -24,6 +24,15 @@ from controlnet_aux import OpenposeDetector
 
 from anonymizer import preprocess, postprocess
 
+_pose_detector = None
+
+
+def _get_pose_detector():
+    global _pose_detector
+    if _pose_detector is None:
+        _pose_detector = OpenposeDetector.from_pretrained("lllyasviel/ControlNet")
+    return _pose_detector
+
 
 def load_rad_pipeline(device: str = "cuda"):
     print("Loading ControlNet OpenPose...")
@@ -57,7 +66,7 @@ def extract_pose(image: Image.Image) -> Image.Image:
     model. The extracted pose is then used to guide Stable Diffusion into generating
     a new person in the exact same position and stance as the original subject.
     """
-    detector = OpenposeDetector.from_pretrained("lllyasviel/ControlNet")
+    detector = _get_pose_detector()
     return detector(image)
 
 

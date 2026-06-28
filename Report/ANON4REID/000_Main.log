@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  29 JUN 2026 00:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  29 JUN 2026 00:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -451,28 +451,35 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 \Gin@req@height=\dimen166
 \Gin@req@width=\dimen167
 )
-(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.s
-ty
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
-\subfigtopskip=\skip67
-\subfigcapskip=\skip68
-\subfigcaptopadj=\dimen168
-\subfigbottomskip=\skip69
-\subfigcapmargin=\dimen169
-\subfiglabelskip=\skip70
-\c@subfigure=\count310
-\c@lofdepth=\count311
-\c@subtable=\count312
-\c@lotdepth=\count313
+(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.st
+y
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
+Package tocbasic Info: Loading of class-dependent code for package caption3
+(tocbasic)             prevented on line 50.
 
-(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.c
-fg)
-\subfig@top=\skip71
-\subfig@bottom=\skip72
+(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen168
+\captionmargin=\dimen169
+\caption@leftmargin=\dimen170
+\caption@rightmargin=\dimen171
+\caption@width=\dimen172
+\caption@indent=\dimen173
+\caption@parindent=\dimen174
+\caption@hangindent=\dimen175
+)
+\c@caption@flags=\count310
+\c@continuedfloat=\count311
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count312
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count313
 )
 
 Class scrreprt Warning: Usage of package `fancyhdr' together
@@ -486,26 +493,26 @@ Class scrreprt Warning: Usage of package `fancyhdr' together
 (scrreprt)              `\addtokomafont' for the page style elements need
 (scrreprt)              explicite user intervention to work.
 (scrreprt)              Nevertheless, using requested
-(scrreprt)              package `fancyhdr' on input line 55.
+(scrreprt)              package `fancyhdr' on input line 54.
 
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip73
-\f@nch@offset@elh=\skip74
-\f@nch@offset@erh=\skip75
-\f@nch@offset@olh=\skip76
-\f@nch@offset@orh=\skip77
-\f@nch@offset@elf=\skip78
-\f@nch@offset@erf=\skip79
-\f@nch@offset@olf=\skip80
-\f@nch@offset@orf=\skip81
-\f@nch@height=\skip82
-\f@nch@footalignment=\skip83
-\f@nch@widthL=\skip84
-\f@nch@widthC=\skip85
-\f@nch@widthR=\skip86
+\f@nch@headwidth=\skip67
+\f@nch@offset@elh=\skip68
+\f@nch@offset@erh=\skip69
+\f@nch@offset@olh=\skip70
+\f@nch@offset@orh=\skip71
+\f@nch@offset@elf=\skip72
+\f@nch@offset@erf=\skip73
+\f@nch@offset@olf=\skip74
+\f@nch@offset@orf=\skip75
+\f@nch@height=\skip76
+\f@nch@footalignment=\skip77
+\f@nch@widthL=\skip78
+\f@nch@widthC=\skip79
+\f@nch@widthR=\skip80
 \@temptokenb=\toks22
 ) (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
@@ -553,20 +560,20 @@ Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
 \SOUL@cmds=\toks26
 \SOUL@buffer=\toks27
 \SOUL@token=\toks28
-\SOUL@syllgoal=\dimen170
-\SOUL@syllwidth=\dimen171
-\SOUL@charkern=\dimen172
-\SOUL@hyphkern=\dimen173
-\SOUL@dimen=\dimen174
-\SOUL@dimeni=\dimen175
+\SOUL@syllgoal=\dimen176
+\SOUL@syllwidth=\dimen177
+\SOUL@charkern=\dimen178
+\SOUL@hyphkern=\dimen179
+\SOUL@dimen=\dimen180
+\SOUL@dimeni=\dimen181
 \SOUL@minus=\count314
 \SOUL@comma=\count315
 \SOUL@apo=\count316
 \SOUL@grave=\count317
-\SOUL@spaceskip=\skip87
-\SOUL@ttwidth=\dimen176
-\SOUL@uldp=\dimen177
-\SOUL@ulht=\dimen178
+\SOUL@spaceskip=\skip81
+\SOUL@ttwidth=\dimen182
+\SOUL@uldp=\dimen183
+\SOUL@ulht=\dimen184
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.s
 ty
@@ -614,7 +621,7 @@ Package: xfor 2009/02/05 v1.05 (NLCT)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks33
-\ex@=\dimen179
+\ex@=\dimen185
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.s
 ty
@@ -641,7 +648,7 @@ Package: datatool-base 2025/12/04 v3.4.3 (NLCT)
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/05/18 v2.17x AMS math features
-\@mathmargin=\skip88
+\@mathmargin=\skip82
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -649,7 +656,7 @@ Package: amstext 2024/11/17 v2.01 AMS text
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen180
+\pmbraise@=\dimen186
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
@@ -671,7 +678,7 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen181
+\big@size=\dimen187
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
 \macc@depth=\count324
@@ -689,15 +696,15 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \column@=\count329
 \maxfields@=\count330
 \andhelp@=\toks35
-\eqnshift@=\dimen182
-\alignsep@=\dimen183
-\tagshift@=\dimen184
-\tagwidth@=\dimen185
-\totwidth@=\dimen186
-\lineht@=\dimen187
+\eqnshift@=\dimen188
+\alignsep@=\dimen189
+\tagshift@=\dimen190
+\tagwidth@=\dimen191
+\totwidth@=\dimen192
+\lineht@=\dimen193
 \@envbody=\toks36
-\multlinegap=\skip89
-\multlinetaggap=\skip90
+\multlinegap=\skip83
+\multlinetaggap=\skip84
 \mathdisplay@stack=\toks37
 LaTeX Info: Redefining \[ on input line 2949.
 LaTeX Info: Redefining \] on input line 2950.
@@ -708,8 +715,8 @@ LaTeX Info: Redefining \] on input line 2950.
 \l__datatool_tmpd_int=\count334
 \l__datatool_count_int=\count335
 \l__datatool_tmp_datatype_int=\count336
-\l__datatool_tmpa_dim=\dimen188
-\l__datatool_tmpb_dim=\dimen189
+\l__datatool_tmpa_dim=\dimen194
+\l__datatool_tmpb_dim=\dimen195
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-l3f
 p.def
@@ -717,7 +724,7 @@ File: datatool-l3fp.def 2025/12/04 v3.4.3 (NLCT)
 )
 \@dtl@toks=\toks38
 \@dtl@tmpcount=\count337
-\dtl@tmplength=\skip91
+\dtl@tmplength=\skip85
 \l__datatool_measure_box=\box59
 \dtl@sortresult=\count338
 
@@ -750,9 +757,9 @@ t line 9924.
 )
 \gls@level=\count356
 \@gls@tmpb=\toks39
-\gls@tmplen=\skip92
-\l__glossaries_tmpa_dim=\dimen190
-\l__glossaries_tmpb_dim=\dimen191
+\gls@tmplen=\skip86
+\l__glossaries_tmpa_dim=\dimen196
+\l__glossaries_tmpb_dim=\dimen197
 \glskeylisttok=\toks40
 \glslabeltok=\toks41
 \glsshorttok=\toks42
@@ -765,7 +772,7 @@ Package: glossary-hypernav 2026/03/06 v5.0 (NLCT)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glo
 ssary-list.sty
 Package: glossary-list 2026/03/06 v5.0 (NLCT)
-\glslistdottedwidth=\skip93
+\glslistdottedwidth=\skip87
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glo
 ssary-long.sty
@@ -773,12 +780,12 @@ Package: glossary-long 2026/03/06 v5.0 (NLCT)
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
 Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
-\LTleft=\skip94
-\LTright=\skip95
-\LTpre=\skip96
-\LTpost=\skip97
+\LTleft=\skip88
+\LTright=\skip89
+\LTpre=\skip90
+\LTpost=\skip91
 \LTchunksize=\count357
-\LTcapwidth=\dimen192
+\LTcapwidth=\dimen198
 \LT@head=\box60
 \LT@firsthead=\box61
 \LT@foot=\box62
@@ -791,8 +798,8 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 \LT@p@ftn=\toks44
 )
 Class scrreprt Info: longtable captions redefined on input line 47.
-\glsdescwidth=\skip98
-\glspagelistwidth=\skip99
+\glsdescwidth=\skip92
+\glspagelistwidth=\skip93
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glo
 ssary-super.sty
@@ -802,36 +809,36 @@ Package: glossary-super 2026/03/06 v5.0 (NLCT)
 ular.sty
 Package: supertabular 2025/06/26 v4.2d the supertabular environment
 \c@tracingst=\count362
-\ST@wd=\dimen193
-\ST@rightskip=\skip100
-\ST@leftskip=\skip101
-\ST@parfillskip=\skip102
-\ST@pageleft=\dimen194
-\ST@headht=\dimen195
-\ST@tailht=\dimen196
-\ST@pagesofar=\dimen197
-\ST@pboxht=\dimen198
-\ST@rowht=\dimen199
-\ST@prevht=\dimen256
-\ST@toadd=\dimen257
-\ST@dimen=\dimen258
+\ST@wd=\dimen199
+\ST@rightskip=\skip94
+\ST@leftskip=\skip95
+\ST@parfillskip=\skip96
+\ST@pageleft=\dimen256
+\ST@headht=\dimen257
+\ST@tailht=\dimen258
+\ST@pagesofar=\dimen259
+\ST@pboxht=\dimen260
+\ST@rowht=\dimen261
+\ST@prevht=\dimen262
+\ST@toadd=\dimen263
+\ST@dimen=\dimen264
 \ST@pbox=\box65
 ))
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glo
 ssary-tree.sty
 Package: glossary-tree 2026/03/06 v5.0 (NLCT)
 \l__glossaries_tree_max_known_level_int=\count363
-\l__glossaries_tree_offset_dim=\dimen259
-\l__glossaries_tree_namewidth_dim=\dimen260
-\l__glossaries_tree_symbolwidth_dim=\dimen261
-\l__glossaries_tree_prenamesym_width_dim=\dimen262
-\l__glossaries_tree_presubnamesym_width_dim=\dimen263
-\l__glossaries_tree_namewidth_padding_dim=\dimen264
-\l__glossaries_tree_symbolwidth_padding_dim=\dimen265
-\l__glossaries_tree_namesymbolwidth_dim=\dimen266
-\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen267
+\l__glossaries_tree_offset_dim=\dimen265
+\l__glossaries_tree_namewidth_dim=\dimen266
+\l__glossaries_tree_symbolwidth_dim=\dimen267
+\l__glossaries_tree_prenamesym_width_dim=\dimen268
+\l__glossaries_tree_presubnamesym_width_dim=\dimen269
+\l__glossaries_tree_namewidth_padding_dim=\dimen270
+\l__glossaries_tree_symbolwidth_padding_dim=\dimen271
+\l__glossaries_tree_namesymbolwidth_dim=\dimen272
+\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen273
 \l__glossaries_tree_level_int=\count364
-\glstreeindent=\skip103
+\glstreeindent=\skip97
 ))
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
@@ -885,14 +892,14 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \blx@sectionciteorderinternal@0=\count406
 \blx@entrysetcounter=\count407
 \blx@biblioinstance=\count408
-\labelnumberwidth=\skip104
-\labelalphawidth=\skip105
-\biblabelsep=\skip106
-\bibitemsep=\skip107
-\bibnamesep=\skip108
-\bibinitsep=\skip109
-\bibparsep=\skip110
-\bibhang=\skip111
+\labelnumberwidth=\skip98
+\labelalphawidth=\skip99
+\biblabelsep=\skip100
+\bibitemsep=\skip101
+\bibnamesep=\skip102
+\bibinitsep=\skip103
+\bibparsep=\skip104
+\bibhang=\skip105
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language80
@@ -977,20 +984,20 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedoriglanguage=\count477
 \c@pageref=\count478
 \c@savedpageref=\count479
-\shorthandwidth=\skip112
-\shortjournalwidth=\skip113
-\shortserieswidth=\skip114
-\shorttitlewidth=\skip115
-\shortauthorwidth=\skip116
-\shorteditorwidth=\skip117
-\locallabelnumberwidth=\skip118
-\locallabelalphawidth=\skip119
-\localshorthandwidth=\skip120
-\localshortjournalwidth=\skip121
-\localshortserieswidth=\skip122
-\localshorttitlewidth=\skip123
-\localshortauthorwidth=\skip124
-\localshorteditorwidth=\skip125
+\shorthandwidth=\skip106
+\shortjournalwidth=\skip107
+\shortserieswidth=\skip108
+\shorttitlewidth=\skip109
+\shortauthorwidth=\skip110
+\shorteditorwidth=\skip111
+\locallabelnumberwidth=\skip112
+\locallabelalphawidth=\skip113
+\localshorthandwidth=\skip114
+\localshortjournalwidth=\skip115
+\localshortserieswidth=\skip116
+\localshorttitlewidth=\skip117
+\localshortauthorwidth=\skip118
+\localshorteditorwidth=\skip119
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1110,8 +1117,8 @@ sty
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfut
 il-common.tex
 \pgfutil@everybye=\toks45
-\pgfutil@tempdima=\dimen268
-\pgfutil@tempdimb=\dimen269
+\pgfutil@tempdima=\dimen274
+\pgfutil@tempdimb=\dimen275
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfut
 il-latex.def
@@ -1142,16 +1149,16 @@ ys.code.tex
 yslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks48
 ))
-\pgf@x=\dimen270
-\pgf@y=\dimen271
-\pgf@xa=\dimen272
-\pgf@ya=\dimen273
-\pgf@xb=\dimen274
-\pgf@yb=\dimen275
-\pgf@xc=\dimen276
-\pgf@yc=\dimen277
-\pgf@xd=\dimen278
-\pgf@yd=\dimen279
+\pgf@x=\dimen276
+\pgf@y=\dimen277
+\pgf@xa=\dimen278
+\pgf@ya=\dimen279
+\pgf@xb=\dimen280
+\pgf@yb=\dimen281
+\pgf@xc=\dimen282
+\pgf@yc=\dimen283
+\pgf@xd=\dimen284
+\pgf@yd=\dimen285
 \w@pgf@writea=\write4
 \r@pgf@reada=\read4
 \c@pgf@counta=\count492
@@ -1197,7 +1204,7 @@ de.tex
 l.code.tex)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathpar
 ser.code.tex
-\pgfmath@dimen=\dimen280
+\pgfmath@dimen=\dimen286
 \pgfmath@count=\count499
 \pgfmath@box=\box67
 \pgfmath@toks=\toks52
@@ -1233,32 +1240,32 @@ e.tex)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen281
-\pgf@picmaxx=\dimen282
-\pgf@picminy=\dimen283
-\pgf@picmaxy=\dimen284
-\pgf@pathminx=\dimen285
-\pgf@pathmaxx=\dimen286
-\pgf@pathminy=\dimen287
-\pgf@pathmaxy=\dimen288
-\pgf@xx=\dimen289
-\pgf@xy=\dimen290
-\pgf@yx=\dimen291
-\pgf@yy=\dimen292
-\pgf@zx=\dimen293
-\pgf@zy=\dimen294
+\pgf@picminx=\dimen287
+\pgf@picmaxx=\dimen288
+\pgf@picminy=\dimen289
+\pgf@picmaxy=\dimen290
+\pgf@pathminx=\dimen291
+\pgf@pathmaxx=\dimen292
+\pgf@pathminy=\dimen293
+\pgf@pathmaxy=\dimen294
+\pgf@xx=\dimen295
+\pgf@xy=\dimen296
+\pgf@yx=\dimen297
+\pgf@yy=\dimen298
+\pgf@zx=\dimen299
+\pgf@zy=\dimen300
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen295
-\pgf@path@lasty=\dimen296
+\pgf@path@lastx=\dimen301
+\pgf@path@lasty=\dimen302
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen297
-\pgf@shorten@start@additional=\dimen298
+\pgf@shorten@end@additional=\dimen303
+\pgf@shorten@start@additional=\dimen304
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orescopes.code.tex
@@ -1271,14 +1278,14 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen299
+\pgflinewidth=\dimen305
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oretransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen300
-\pgf@pt@y=\dimen301
-\pgf@pt@temp=\dimen302
+\pgf@pt@x=\dimen306
+\pgf@pt@y=\dimen307
+\pgf@pt@temp=\dimen308
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orequick.code.tex
@@ -1295,12 +1302,12 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 orearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen303
+\pgfarrowsep=\dimen309
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfc
 oreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen304
+\pgf@max=\dimen310
 \pgf@sys@shading@range@num=\count502
 \pgf@shadingcount=\count503
 )
@@ -1341,8 +1348,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
 comp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen305
-\pgf@nodesepend=\dimen306
+\pgf@nodesepstart=\dimen311
+\pgf@nodesepend=\dimen312
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
 comp-version-1-18.sty
@@ -1360,8 +1367,8 @@ de.tex))
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffo
 r.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen307
-\pgffor@skip=\dimen308
+\pgffor@iter=\dimen313
+\pgffor@skip=\dimen314
 \pgffor@stack=\toks55
 \pgffor@toks=\toks56
 ))
@@ -1373,16 +1380,16 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 braryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@plot@mark@count=\count504
-\pgfplotmarksize=\dimen309
+\pgfplotmarksize=\dimen315
 )
-\tikz@lastx=\dimen310
-\tikz@lasty=\dimen311
-\tikz@lastxsaved=\dimen312
-\tikz@lastysaved=\dimen313
-\tikz@lastmovetox=\dimen314
-\tikz@lastmovetoy=\dimen315
-\tikzleveldistance=\dimen316
-\tikzsiblingdistance=\dimen317
+\tikz@lastx=\dimen316
+\tikz@lasty=\dimen317
+\tikz@lastxsaved=\dimen318
+\tikz@lastysaved=\dimen319
+\tikz@lastmovetox=\dimen320
+\tikz@lastmovetoy=\dimen321
+\tikzleveldistance=\dimen322
+\tikzsiblingdistance=\dimen323
 \tikz@figbox=\box73
 \tikz@figbox@bg=\box74
 \tikz@tempbox=\box75
@@ -1413,14 +1420,14 @@ File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count513
 \calc@Bcount=\count514
-\calc@Adimen=\dimen318
-\calc@Bdimen=\dimen319
-\calc@Askip=\skip126
-\calc@Bskip=\skip127
+\calc@Adimen=\dimen324
+\calc@Bdimen=\dimen325
+\calc@Askip=\skip120
+\calc@Bskip=\skip121
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
 \calc@Ccount=\count515
-\calc@Cskip=\skip128
+\calc@Cskip=\skip122
 )
 \c@@todonotes@numberoftodonotes=\count516
 )
@@ -1429,71 +1436,71 @@ Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/05/19 v2.6i Tabular extension package (FMi)
-\col@sep=\dimen320
+\col@sep=\dimen326
 \ar@mcellbox=\box77
-\extrarowheight=\dimen321
+\extrarowheight=\dimen327
 \NC@list=\toks57
-\extratabsurround=\skip129
-\backup@length=\skip130
+\extratabsurround=\skip123
+\backup@length=\skip124
 \ar@cellbox=\box78
 )
-\TX@col@width=\dimen322
-\TX@old@table=\dimen323
-\TX@old@col=\dimen324
-\TX@target=\dimen325
-\TX@delta=\dimen326
+\TX@col@width=\dimen328
+\TX@old@table=\dimen329
+\TX@old@col=\dimen330
+\TX@target=\dimen331
+\TX@delta=\dimen332
 \TX@cols=\count517
 \TX@ftn=\toks58
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip131
+\multirow@colwidth=\skip125
 \multirow@cntb=\count518
-\multirow@dima=\skip132
-\bigstrutjot=\dimen327
+\multirow@dima=\skip126
+\bigstrutjot=\dimen333
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen328
+\rotheadsize=\dimen334
 \c@nlinenum=\count519
 \TeXr@lab=\toks59
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
 \everycr=\toks60
-\minrowclearance=\skip133
+\minrowclearance=\skip127
 \rownum=\count520
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen329
-\lightrulewidth=\dimen330
-\cmidrulewidth=\dimen331
-\belowrulesep=\dimen332
-\belowbottomsep=\dimen333
-\aboverulesep=\dimen334
-\abovetopsep=\dimen335
-\cmidrulesep=\dimen336
-\cmidrulekern=\dimen337
-\defaultaddspace=\dimen338
+\heavyrulewidth=\dimen335
+\lightrulewidth=\dimen336
+\cmidrulewidth=\dimen337
+\belowrulesep=\dimen338
+\belowbottomsep=\dimen339
+\aboverulesep=\dimen340
+\abovetopsep=\dimen341
+\cmidrulesep=\dimen342
+\cmidrulekern=\dimen343
+\defaultaddspace=\dimen344
 \@cmidla=\count521
 \@cmidlb=\count522
-\@aboverulesep=\dimen339
-\@belowrulesep=\dimen340
+\@aboverulesep=\dimen345
+\@belowrulesep=\dimen346
 \@thisruleclass=\count523
 \@lastruleclass=\count524
-\@thisrulewidth=\dimen341
+\@thisrulewidth=\dimen347
 ) (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
 \UL@box=\box79
 \UL@hyphenbox=\box80
-\UL@skip=\skip134
+\UL@skip=\skip128
 \UL@hook=\toks61
-\UL@height=\dimen342
+\UL@height=\dimen348
 \UL@pe=\count525
-\UL@pixel=\dimen343
+\UL@pixel=\dimen349
 \ULC@box=\box81
 Package: ulem 2019/11/18
-\ULdepth=\dimen344
+\ULdepth=\dimen350
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
@@ -1513,8 +1520,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip135
-\enit@outerparindent=\dimen345
+\labelindent=\skip129
+\enit@outerparindent=\dimen351
 \enit@toks=\toks64
 \enit@inbox=\box84
 \enit@count@id=\count527
@@ -1533,7 +1540,7 @@ re.code.tex
 \t@pgfplots@toka=\toks65
 \t@pgfplots@tokb=\toks66
 \t@pgfplots@tokc=\toks67
-\pgfplots@tmpa=\dimen346
+\pgfplots@tmpa=\dimen352
 \c@pgfplots@coordindex=\count529
 \c@pgfplots@scanlineindex=\count530
 
@@ -1611,14 +1618,14 @@ aths.code.tex)
 ikz/libraries\tikzlibrarydecorations.code.tex
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
 ledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen347
-\pgfdecoratedremainingdistance=\dimen348
-\pgfdecoratedinputsegmentcompleteddistance=\dimen349
-\pgfdecoratedinputsegmentremainingdistance=\dimen350
-\pgf@decorate@distancetomove=\dimen351
+\pgfdecoratedcompleteddistance=\dimen353
+\pgfdecoratedremainingdistance=\dimen354
+\pgfdecoratedinputsegmentcompleteddistance=\dimen355
+\pgfdecoratedinputsegmentremainingdistance=\dimen356
+\pgf@decorate@distancetomove=\dimen357
 \pgf@decorate@repeatstate=\count534
-\pgfdecorationsegmentamplitude=\dimen352
-\pgfdecorationsegmentlength=\dimen353
+\pgfdecorationsegmentamplitude=\dimen358
+\pgfdecorationsegmentlength=\dimen359
 )
 \tikz@lib@dec@box=\box85
 )
@@ -1633,12 +1640,12 @@ ations\pgflibrarydecorations.pathreplacing.code.tex))
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzl
 ibrarypgfplots.contourlua.code.tex)
 \pgfplots@numplots=\count535
-\pgfplots@xmin@reg=\dimen354
-\pgfplots@xmax@reg=\dimen355
-\pgfplots@ymin@reg=\dimen356
-\pgfplots@ymax@reg=\dimen357
-\pgfplots@zmin@reg=\dimen358
-\pgfplots@zmax@reg=\dimen359
+\pgfplots@xmin@reg=\dimen360
+\pgfplots@xmax@reg=\dimen361
+\pgfplots@ymin@reg=\dimen362
+\pgfplots@ymax@reg=\dimen363
+\pgfplots@zmin@reg=\dimen364
+\pgfplots@zmax@reg=\dimen365
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
 ikz/libraries\tikzlibraryplotmarks.code.tex
@@ -1659,10 +1666,10 @@ File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
 braryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen360
-\pgfarrowlength=\dimen361
-\pgfarrowwidth=\dimen362
-\pgfarrowlinewidth=\dimen363
+\pgfarrowinset=\dimen366
+\pgfarrowlength=\dimen367
+\pgfarrowwidth=\dimen368
+\pgfarrowlinewidth=\dimen369
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
 ikz/libraries\tikzlibrarycalc.code.tex
@@ -1691,7 +1698,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \c@tcblayer=\count537
 \c@tcolorbox@number=\count538
 \l__tcobox_tmpa_box=\box90
-\l__tcobox_tmpa_dim=\dimen364
+\l__tcobox_tmpa_dim=\dimen370
 \tcb@temp=\box91
 \tcb@temp=\box92
 \tcb@temp=\box93
@@ -1716,8 +1723,8 @@ Package: tikzfill.image 2026/04/23 v1.2.0 Image filling library for TikZ
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryf
 ill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2026/04/23 v1.2.0 Image filling library
-\l__tikzfill_tmpa_dim=\dimen365
-\l__tikzfill_tmpb_dim=\dimen366
+\l__tikzfill_tmpa_dim=\dimen371
+\l__tikzfill_tmpb_dim=\dimen372
 \l__tikzfill_img_box=\box95
 ))
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjig
@@ -1746,9 +1753,9 @@ Library (tcolorbox): 'tcbtheorems.code.tex' version '6.6.0'
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbfitting.
 code.tex
 Library (tcolorbox): 'tcbfitting.code.tex' version '6.6.0'
-\tcbfitdim=\dimen367
-\tcb@lowerfitdim=\dimen368
-\tcb@upperfitdim=\dimen369
+\tcbfitdim=\dimen373
+\tcb@lowerfitdim=\dimen374
+\tcb@upperfitdim=\dimen375
 \tcb@cur@hbadness=\count543
 )
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistings
@@ -2100,7 +2107,7 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 193.
+(scrreprt)           before \begin{document} on input line 192.
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -2118,7 +2125,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 \@quotelevel=\count550
 \@quotereset=\count551
 LaTeX Font Info:    Trying to load font information for T1+jkpss on input line 
-193.
+192.
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\t1jkpss.fd
 File: t1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for T1/jkpss.
 )
@@ -2127,59 +2134,59 @@ File: t1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for T1/jkpss.
 )
 \openout1 = `000_Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 193.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 192.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 1
-93.
+92.
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 193.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 192.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 1
-93.
+92.
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 193.
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 193.
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 193.
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 193.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 192.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 1
-93.
+92.
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 193.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 192.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
-193.
+192.
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/kpfonts\ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 193.
-LaTeX Font Info:    ... okay on input line 193.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 193.
-LaTeX Font Info:    ... okay on input line 193.
-Package scrbase Info: activating english \abstractname on input line 193.
-Package scrbase Info: activating english \partname on input line 193.
-Package scrbase Info: activating english \chaptername on input line 193.
-Package scrbase Info: activating english \appendixname on input line 193.
-Package scrbase Info: activating english \figurename on input line 193.
-Package scrbase Info: activating english \tablename on input line 193.
-Package scrbase Info: activating english \contentsname on input line 193.
-Package scrbase Info: activating english \listfigurename on input line 193.
-Package scrbase Info: activating english \listtablename on input line 193.
-Package scrbase Info: activating english \bibname on input line 193.
-Package scrbase Info: activating english \indexname on input line 193.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+Package scrbase Info: activating english \abstractname on input line 192.
+Package scrbase Info: activating english \partname on input line 192.
+Package scrbase Info: activating english \chaptername on input line 192.
+Package scrbase Info: activating english \appendixname on input line 192.
+Package scrbase Info: activating english \figurename on input line 192.
+Package scrbase Info: activating english \tablename on input line 192.
+Package scrbase Info: activating english \contentsname on input line 192.
+Package scrbase Info: activating english \listfigurename on input line 192.
+Package scrbase Info: activating english \listtablename on input line 192.
+Package scrbase Info: activating english \bibname on input line 192.
+Package scrbase Info: activating english \indexname on input line 192.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2216,20 +2223,20 @@ Package scrbase Info: activating english \indexname on input line 193.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count553
-Package tocbasic Info: setting babel extension for `lol' on input line 193.
-\scr@dte@lstlisting@maxnumwidth=\skip136
+Package tocbasic Info: setting babel extension for `lol' on input line 192.
+\scr@dte@lstlisting@maxnumwidth=\skip130
 
 (C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count554
-\scratchdimen=\dimen370
+\scratchdimen=\dimen376
 \scratchbox=\box99
 \nofMPsegments=\count555
 \nofMParguments=\count556
 \everyMPshowfont=\toks74
 \MPscratchCnt=\count557
-\MPscratchDim=\dimen371
+\MPscratchDim=\dimen377
 \MPnumerator=\count558
 \makeMPintoPDFobject=\count559
 \everyMPtoPDFconversion=\toks75
@@ -2244,7 +2251,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 .cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 193.
+Package hyperref Info: Link coloring ON on input line 192.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: supertabular package is loaded.
+Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -2260,14 +2276,14 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '000_Main.bbl' found.
  (000_Main.bbl)
-Package biblatex Info: Reference section=0 on input line 193.
-Package biblatex Info: Reference segment=0 on input line 193.
+Package biblatex Info: Reference section=0 on input line 192.
+Package biblatex Info: Reference segment=0 on input line 192.
 
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 193.
+loading the todonotes package. on input line 192.
 
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
@@ -2292,7 +2308,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--52
 {C:/Users/Sucrose/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Su
 crose/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./img/logo-en
 .jpg>])
-Overfull \hbox (4.0417pt too wide) in paragraph at lines 214--215
+Overfull \hbox (4.0417pt too wide) in paragraph at lines 213--214
 \T1/jkpss/b/n/12 Keywords: \T1/jkpss/m/n/12 Per-son Re-Identification, Anonymiz
 a-tion, Pri-vacy, Deep Learn-ing, Market-1501,
  []
@@ -2410,13 +2426,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[3
-pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.46 
-     ]
+[3]
 LaTeX Font Info:    Font shape `T1/jkpss/m/it' in size <12> not available
 (Font)              Font shape `T1/jkpss/m/sl' tried instead on input line 50.
 
@@ -2441,13 +2451,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 chapter 3.
 
 
-[6
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.71 
-     ]
+[6]
 Overfull \hbox (5.41692pt too wide) in paragraph at lines 86--87
 []\T1/jkpss/m/n/12 An al-ter-na-tive de-sign would ap-ply the upscale--process-
 -downscale pipeline (Sec-tion [][]3.2.2[][])
@@ -2462,13 +2466,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[7
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.101 
-      ]
+[7]
 
 
 Package fancyhdr Warning: \headheight is too small (18.125pt): 
@@ -2533,19 +2531,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[11
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.59 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.59 
-     ]
+[11]
 Overfull \hbox (4.32011pt too wide) in paragraph at lines 62--63
 \T1/jkpss/m/n/12 downscale pipeline de-scribed in Sec-tion [][]3.2.2[][], pro-c
 ess-ing each im-age in-di-vid-u-ally through
@@ -2566,23 +2552,11 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[12
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.3}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1 \chapter
-            {Results}]
+[12]
 chapter 5.
 
 
-[13
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.39 
-     ]
+[13]
 Overfull \hbox (4.14503pt too wide) in paragraph at lines 40--41
 \T1/jkpss/m/n/12 blur-ring pre-serves the body-level fea-tures that [][][]OS-Ne
 t[][] pri-mar-ily re-lies on for cross-camera
@@ -2599,19 +2573,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[14
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.118 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.118 
-      ]
+[14]
 Package pgfplots info on input line 162: Using 'lua backend=false' for axis: x 
 coord trafo unsupported.
 
@@ -2623,19 +2585,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[15
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.174 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.174 
-      ]
+[15]
 
 
 Package fancyhdr Warning: \headheight is too small (18.125pt): 
@@ -2644,19 +2594,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[16
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.233 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.233 
-      ]) (060_Discussion.tex
+[16]) (060_Discussion.tex
 
 
 Package fancyhdr Warning: \headheight is too small (18.125pt): 
@@ -2665,19 +2603,7 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[17
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1 \chapter
-            {Discussion}
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1 \chapter
-            {Discussion}]
+[17]
 chapter 6.
 
 
@@ -2731,13 +2657,13 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 [21]
 chapter without number
 
-Overfull \hbox (2.349pt too wide) in paragraph at lines 232--232
+Overfull \hbox (2.349pt too wide) in paragraph at lines 231--231
 []\T1/jkpss/m/n/12 European Par-lia-ment and Coun-cil of the Eu-ro-pean Union, 
 \T1/jkpss/m/sl/12 Reg-u-la-tion (eu) 2016/679
  []
 
 
-Overfull \hbox (14.43289pt too wide) in paragraph at lines 232--232
+Overfull \hbox (14.43289pt too wide) in paragraph at lines 231--231
 \T1/jkpss/m/n/12 ing high-resolution im-ages with few-step in-fer-ence,'' \T1/j
 kpss/m/sl/12 arXiv preprint arXiv:2310.04378\T1/jkpss/m/n/12 ,
  []
@@ -2782,36 +2708,104 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to '000_Main.run.xml'.
 \openout1 = `000_Main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62221 strings out of 468225
- 1432403 string characters out of 5432005
- 2522512 words of memory out of 5000000
- 89686 multiletter control sequences out of 15000+600000
+ 63482 strings out of 468225
+ 1457934 string characters out of 5432005
+ 2551659 words of memory out of 5000000
+ 90924 multiletter control sequences out of 15000+600000
  728658 words of font info for 150 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,19n,107p,11285b,2333s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jk
-pex.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfo
-nts/jkpmi.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/kpfonts/jkpmia.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/kpfonts/jkpmn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/kpfonts/jkpssbn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/kpfonts/jkpssbne.pfb><C:/Users/Sucrose/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/Sucrose/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/S
-ucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmne.pfb><C
-:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssm
-ne.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfon
-ts/jkpsy.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/kpfonts/jkpsyb.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/kpfonts/jkpttmn8a.pfb>
-Output written on 000_Main.pdf (29 pages, 1040921 bytes).
+ 108i,19n,107p,11285b,2427s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{table.3.1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.2.1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.5.5} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.5.4} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.5.4} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.5.3} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.5.3} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.5.2} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.5.1} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.5.2} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.5.1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.4.3} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.4.2} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.4.1} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.3.1} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter*.4} has been referenced but does not exist,
+ replaced by a fixed one
+
+<C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpe
+x.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfont
+s/jkpmi.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+kpfonts/jkpmia.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/kpfonts/jkpmn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/font
+s/type1/public/kpfonts/jkpssbn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/kpfonts/jkpssbne.pfb><C:/Users/Sucrose/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/Sucrose/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/Suc
+rose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmne.pfb><C:/
+Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmne
+.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts
+/jkpsy.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/k
+pfonts/jkpsyb.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/kpfonts/jkpttmn8a.pfb>
+Output written on 000_Main.pdf (29 pages, 1042672 bytes).
 PDF statistics:
- 649 PDF objects out of 1000 (max. 8388607)
- 131 named destinations out of 1000 (max. 500000)
+ 669 PDF objects out of 1000 (max. 8388607)
+ 147 named destinations out of 1000 (max. 500000)
  418 words of extra memory for PDF output out of 10000 (max. 10000000)
 
