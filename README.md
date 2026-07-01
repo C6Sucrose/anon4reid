@@ -244,9 +244,4 @@ Results are saved to `outputs/results/dry_run/` for visual inspection.
 The privacy-utility trade-off is a **cliff**, not a curve. Face blur retains 80.9% utility but leaks 88.66% of identities. Body-level methods achieve near-perfect privacy but destroy utility entirely. No sweet spot exists.
 
 ---
-
-## Team
-
-Huraira Ali, Jazib Aslam, Kazi Shafwanur Rehman, Muhammad Umer Awan
-
 **Lecturer:** Robert Aufschlaeger — TH Deggendorf, AI Project, Summer Semester 2026
