@@ -24,4 +24,5 @@ dependencies = [
     "matplotlib>=3.10.0",
     "streamlit>=1.45.0",
     "plotly>=6.1.0",
+    "python-pptx>=1.0.2",
 ]
