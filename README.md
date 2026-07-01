@@ -95,7 +95,7 @@ If you prefer to set up the project manually or regenerate the datasets yourself
 #### 1. Clone and create virtual environment
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/C6Sucrose/anon4reid
 cd anon4reid
 python -m venv .venv
 # Windows:
