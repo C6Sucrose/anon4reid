@@ -15,5 +15,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\def \@chapapp {\appendixname }
+\addvspace {10\p@ }
+\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Quick setup.}}{27}{lstlisting.A.1}%
+\contentsline {lstlisting}{\numberline {A.2}{\ignorespaces Environment setup.}}{27}{lstlisting.A.2}%
+\contentsline {lstlisting}{\numberline {A.3}{\ignorespaces Required dataset structure.}}{28}{lstlisting.A.3}%
+\contentsline {lstlisting}{\numberline {A.4}{\ignorespaces Launching the dashboard.}}{29}{lstlisting.A.4}%
+\contentsline {lstlisting}{\numberline {A.5}{\ignorespaces Project directory layout.}}{29}{lstlisting.A.5}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

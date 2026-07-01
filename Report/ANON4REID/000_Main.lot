@@ -16,5 +16,8 @@
 \contentsline {table}{\numberline {5.5}{\ignorespaces Effect of k-reciprocal re-ranking on mAP. ``w/o'' = without re-ranking (raw Euclidean); ``w/'' = with k-reciprocal encoding.}}{22}{table.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\def \@chapapp {\appendixname }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Script execution order with estimated runtimes.}}{28}{table.caption.19}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

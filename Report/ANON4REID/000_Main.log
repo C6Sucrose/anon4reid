@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  29 JUN 2026 01:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  29 JUN 2026 23:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2696,6 +2696,22 @@ Overfull \hbox (4.97305pt too wide) in paragraph at lines 17--18
 ing that sim-ple face anonymiza-
  []
 
+) (080_Appendix.tex
+chapter A.
+
+
+[26]
+Overfull \hbox (12.38756pt too wide) in paragraph at lines 26--27
+[]\T1/jkpss/m/n/12 Copy the \T1/jkptt/m/n/12 data/ \T1/jkpss/m/n/12 folder from
+ the archive into the project root so that \T1/jkptt/m/n/12 data/raw/Market-
+ []
+
+
+(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(C:\Users\Sucrose\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 
 
@@ -2705,23 +2721,60 @@ Package fancyhdr Warning: \headheight is too small (18.125pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
 
-[26]
+[27]
+
+LaTeX Warning: Reference `tab:execution' on page 28 undefined on input line 82.
+
+
+
+Overfull \hbox (222.7208pt too wide) in paragraph at lines 86--100
+ [][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (18.125pt): 
+(fancyhdr)                Make it at least 24.64995pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.64995pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
+
+[28]
+
+
+Package fancyhdr Warning: \headheight is too small (18.125pt): 
+(fancyhdr)                Make it at least 24.64995pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.64995pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
+
+[29])
+
+
+Package fancyhdr Warning: \headheight is too small (18.125pt): 
+(fancyhdr)                Make it at least 24.64995pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.64995pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-6.52495pt}.
+
+[30]
 chapter without number
 
-Overfull \hbox (2.349pt too wide) in paragraph at lines 231--231
+Overfull \hbox (2.349pt too wide) in paragraph at lines 233--233
 []\T1/jkpss/m/n/12 European Par-lia-ment and Coun-cil of the Eu-ro-pean Union, 
 \T1/jkpss/m/sl/12 Reg-u-la-tion (eu) 2016/679
  []
 
 
-Overfull \hbox (14.43289pt too wide) in paragraph at lines 231--231
+Overfull \hbox (14.43289pt too wide) in paragraph at lines 233--233
 \T1/jkpss/m/n/12 ing high-resolution im-ages with few-step in-fer-ence,'' \T1/j
 kpss/m/sl/12 arXiv preprint arXiv:2310.04378\T1/jkpss/m/n/12 ,
  []
 
 
 
-[27
+[31
 
 ] (000_Main.lof
 Overfull \hbox (3.20914pt too wide) in paragraph at lines 10--10
@@ -2741,7 +2794,7 @@ cu-racy on anonymized query
 
 
 
-[28])
+[32])
 \tf@lot=\write7
 \openout7 = `000_Main.lot'.
 
@@ -2757,43 +2810,54 @@ i-ants (\T1/jkptt/m/n/12 evaluate_utility.py\T1/jkpss/m/n/12 ).[][] [][]
 
 
 
-[29] (000_Main.aux)
+[33] (000_Main.aux)
  ***********
 LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to '000_Main.run.xml'.
 \openout1 = `000_Main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 64289 strings out of 468225
- 1467523 string characters out of 5432005
- 2751602 words of memory out of 5000000
- 91539 multiletter control sequences out of 15000+600000
- 731457 words of font info for 159 fonts, out of 8000000 for 9000
+ 64576 strings out of 468225
+ 1471612 string characters out of 5432005
+ 2751614 words of memory out of 5000000
+ 91741 multiletter control sequences out of 15000+600000
+ 748854 words of font info for 184 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,19n,107p,11285b,2427s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jk
-pex.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfo
-nts/jkpmi.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/kpfonts/jkpmia.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/kpfonts/jkpmn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/kpfonts/jkpssbn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/kpfonts/jkpssbne.pfb><C:/Users/Sucrose/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/Sucrose/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/S
-ucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmne.pfb><C
-:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssm
-ne.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfon
-ts/jkpsy.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/kpfonts/jkpsyb.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/kpfonts/jkpttbn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/kpfonts/jkpttmn8a.pfb><C:/Users/Sucrose/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on 000_Main.pdf (34 pages, 1101348 bytes).
+
+pdfTeX warning (dest): name{chapter*.19} has been referenced but does not exist
+, replaced by a fixed one
+
+<C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpe
+x.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfont
+s/jkpmi.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+kpfonts/jkpmia.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/kpfonts/jkpmn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/font
+s/type1/public/kpfonts/jkpssbn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/kpfonts/jkpssbne.pfb><C:/Users/Sucrose/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/Sucrose/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmn8a.pfb><C:/Users/Suc
+rose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmne.pfb><C:/
+Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts/jkpssmne
+.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/kpfonts
+/jkpsy.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/public/k
+pfonts/jkpsyb.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/kpfonts/jkpttbn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/kpfonts/jkpttmn8a.pfb><C:/Users/Sucrose/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
+Output written on 000_Main.pdf (38 pages, 1130632 bytes).
 PDF statistics:
- 845 PDF objects out of 1000 (max. 8388607)
- 326 named destinations out of 1000 (max. 500000)
- 418 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 972 PDF objects out of 1000 (max. 8388607)
+ 400 named destinations out of 1000 (max. 500000)
+ 474 words of extra memory for PDF output out of 10000 (max. 10000000)
 

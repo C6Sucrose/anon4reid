@@ -11,5 +11,7 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Privacy--utility trade-off scatter plot. The ideal zone (high utility, low leakage) in the bottom-right is unoccupied, illustrating the fundamental tension between privacy and \acrshort {reid} utility.}}{21}{figure.caption.17}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\def \@chapapp {\appendixname }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

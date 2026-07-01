@@ -35,5 +35,15 @@
 \contentsline {section}{\numberline {6.2}State-of-the-Art Context}{24}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Limitations and Future Work}{24}{section.6.3}%
 \contentsline {chapter}{\numberline {7}Conclusion}{25}{chapter.7}%
-\contentsline {chapter}{\nonumberline References}{27}{chapter*.19}%
+\def \@chapapp {\appendixname }
+\contentsline {chapter}{\numberline {A}Reproduction Guide}{26}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Prerequisites}{26}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Quick Setup (Recommended)}{27}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Manual Setup (From Scratch)}{27}{section.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}Dataset and Weights}{28}{subsection.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Execution Order}{28}{subsection.A.3.2}%
+\contentsline {section}{\numberline {A.4}Streamlit Dashboard}{29}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Project Structure}{29}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Reproducibility Notes}{29}{section.A.6}%
+\contentsline {chapter}{\nonumberline References}{31}{chapter*.20}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
